@@ -1,0 +1,2473 @@
+9.pdf:
+Speech Technologies with Fieldwork Recordings:
+the Case of Haitian Creole
+William N. Havard1,2, Renauld Govain3, Benjamin Lecouteux2, Emmanuel Schang1
+1 LLL, Université d’Orléans, CNRS, 45000 Orléans, France
+2 LIG, Université Grenoble Alpes, CNRS, Grenoble INP, 38000 Grenoble, France
+3 LangSé, Université d’État d’Haïti, Port-au-Prince, Haïti
+william.havard@univ-orleans.fr
+Abstract
+We use 40-year-old digitalised tape-recorded
+fieldwork data in Haitian Creole to train a na-
+tive self-supervised learning (SSL) model of
+speech representation (WAV2VEC2). We also
+use a continued pre-training approach on pre-
+trained SSL models of two foreign languages:
+the lexifier language – French – and an un-
+related language – English. We compare the
+performances of these three SSL models, and
+of two other foreign SSL models directly fine-
+tuned, on an ASR task, where all five models
+are fine-tuned on transcribed fieldwork record-
+ings in Haitian Creole. Our results show the
+best-performing model is the one trained using
+a continued pre-training approach on the lex-
+ifier language, followed by the native model.
+We conclude that the ‘mobilising the archive’-
+approach advocated by (Bird, 2020) is a promis-
+ing way forward to design speech technologies
+for new languages.
+1
+Introduction
+Most of the so-called low-resourced languages are
+often low-resourced from the perspective of com-
+puter scientists only: they often have many re-
+sources that were collected over the years by lin-
+guists, missionaries, and generally by the commu-
+nity of speakers itself (Bird, 2020). The data is
+often not readily accessible (i.e. in a digitalised
+format), but existent nonetheless. The question we
+aim to answer in this paper is the following: how far
+can we go with state-of-the-art speech processing
+models using only fieldwork data? By ‘fieldwork
+data’, we mean data that was not originally col-
+lected to serve as training data for computational
+applications (e.g. Automatic Speech Recognition,
+ASR), but was collected for linguistic purposes
+(e.g. to study dialectal variation). In this paper, we
+focus on spoken data in Haitian Creole, consisting
+of recorded interviews between linguists and their
+collaborators. Haitian Creole is a French-based
+Creole (i.e. French is called its lexifier language,
+the language that gave Haitian Creole most of its
+vocabulary (Hazael-Massieux, 2012)), spoken by
+13M speakers (Simons and Fennig, 2023) in Haiti
+and by the Haitian diaspora.
+Most of the data we use in this paper (see Section
+2) was collected 40 years ago with tape recorders
+to study dialectal variation in Haitian, with a fo-
+cus on lexical variations. Contrary to the clean
+audiobooks commonly used to train neural models
+(e.g. Librispeech, (Panayotov et al., 2015)), the data
+we used is inherently noisy: reverberated, echo-y,
+full of environmental noise (e.g. chickens, cars,
+passers-by, etc.). Yet, this type of data represents
+the majority of the data available for most of the
+world languages. As collecting and transcribing
+data is a costly process (Himmelmann, 2018), is
+it possible to make use — as advocated by (Bird,
+2020) in the ‘mobilising the archive’-approach —
+of already existing (and potentially old) fieldwork
+data and re-purpose them for computational appli-
+cations?
+1.1
+Related Works
+The field of speech processing for Creole languages
+is relatively sparse, except for the work of (Bre-
+iter, 2014) for Haitian Creole, that of (Macaire
+et al., 2022; Le Ferrand et al., 2023; Le Ferrand
+and Prud’hommeaux, 2024) for Guadeloupean and
+Mauritian Creole, and (Gooda Sahib-Kaudeer et al.,
+2019) for Mauritian Creole (with a focus on the
+medical domain). Hence, speech processing for
+Creole languages — whatever the lexifier language,
+be it French, English, Portuguese, etc. — remains
+largely unexplored.
+Unrelated to Creole languages — but related to
+our experimental settings — (Nowakowski et al.,
+2023) explored continuous pre-training (CPT) ap-
+proaches, followed by an ASR fine-tuning task for
+Ainu speech recognition using old fieldwork data.
+In short, CPT is a form of transfer learning which
+
+16.pdf:
+Abstract 
+This paper addresses the problem of data 
+interchange 
+involving 
+SIL 
+FLEx, 
+a 
+software widely used for morphological 
+glossing of texts in underresourced 
+languages. Interlinear glossed texts (IGT) 
+created in FLEx can be exported in a well-
+defined XML format. However, IGT 
+created in other programs (e.g. Toolbox or 
+ELAN) or even in another version of the 
+same FLEx project cannot be imported, 
+which blocks the reuse of legacy data as 
+well as roundtrips involving FLEx. We 
+present a solution using Python and XSLT 
+which was successfully used to merge a 
+large collection of legacy texts in Forest and 
+Tundra Enets (formerly glossed in Toolbox) 
+with an existing FLEx project. 
+1 
+SIL FLEx and its import functionality 
+SIL FLEx (FieldWorks Language Explorer)1  is a 
+software for lexicon development and text analysis 
+that is widely used in minority languages 
+documentation. One of the key features of FLEx is 
+keeping consistency between the interlinear 
+glossed texts (IGT) and the lexicon. Any change in 
+the gloss or grammatical properties in the lexical 
+entry (typically corresponding to a morpheme, 
+such as a root or an affix) is instantly reflected in 
+the analyses of every wordform referring to that 
+morpheme. On the other hand, as soon as a 
+wordform has received a morpheme-by-morpheme 
+analysis, this analysis is stored internally and will 
+be suggested to the user if the same wordform is 
+encountered elsewhere. 
+FLEx provides a range of import and export 
+options to connect to other linguistic analysis 
+software. In particular, roundtrips involving 
+ 
+1 https://software.sil.org/fieldworks/ 
+2 https://archive.mpi.nl/tla/elan 
+ELAN, 2  a multimedia annotation software, have 
+become increasingly important. 
+A feature that has been much requested for years 
+but is still not implemented in FLEx is the ability 
+to import an IGT and preserve the analysis below 
+the word level (morpheme breakdown, morpheme 
+glosses, grammatical properties etc.). With the 
+existing import functionality, the baseline text 
+persists as well as sentence-level translations, but 
+morpheme glossing has to be redone from scratch. 
+As a consequence, an IGT can be exported from 
+FLEx, but it is not possible to make changes to it 
+externally and re-import it again into FLEx for 
+further analysis, nor import it into another FLEx 
+project. When a text leaves FLEx, it leaves FLEx 
+for good. 
+This paper presents a way to circumvent this gap 
+in interoperability with a set of scripts which 
+translate the input IGTs into FLEx objects and 
+append them to the main FLEx project XML data 
+file (.fwdata). In the following sections, we present 
+our first and most important use case (section 2), 
+briefly describe the data formats and methods used 
+(section 3), present the overall workflow and zoom 
+in on the two core scripts (section 4). 
+2 
+Use case: importing Enets texts from 
+Toolbox 
+Our motivation was the desire to merge existing 
+FLEx projects with large collections of texts 
+glossed in Field Linguist’s Toolbox, 3  a previous 
+generation text analysis software. We had a FLEx 
+project for Forest Enets (Uralic; ISO 639-3: enf, 
+Glottocode: fore1265) and a corresponding 
+collection of 343 texts glossed in Toolbox at our 
+disposal. The second FLEx project, as well as a 
+smaller collection of 99 Toolbox texts, concerned 
+the closely related Tundra Enets (ISO 639-3: enh, 
+3 https://software.sil.org/toolbox/ 
+Importing complete interlinear glossed texts into SIL FLEx 
+ 
+ 
+ 
+Aleksandr Riaposov, Alexandre Arkhipov, Elena Lazarenko 
+University of Hamburg 
+{aleksandr.riaposov,alexandre.arkhipov,elena.lazarenko}@uni-hamburg.de
+
+17.pdf:
+Exploring Limitations and Risks of LLM-Based Grammatical Error
+Correction for Indigenous Languages
+Flammie A Pirinen
+Divvun
+UiT Norgga árktalaš universitehta
+Tromsø, Norway
+flammie.pirinen@uit.no
+Linda Wiechetek
+Divvun
+UiT Norgga árktalaš universitehta
+Tromsø, Norway
+linda.wiechetek@uit.no
+Abstract
+Rule-based grammatical error correction has
+long been seen as the most effective way to
+create user-friendly end-user systems for gram-
+matical error correction (GEC). However, in
+the recent years the large language models and
+generative AI systems based on that technol-
+ogy have been progressed fast to challenge the
+traditional GEC approach. In this article we
+show which possibilities and limitations this
+approach bears for Indigenous languages that
+have more limited digital presence in the large
+language model data and a different literacy
+background than English. We show experi-
+ments in North Sámi, an Indigenous language
+of Northern Europe.
+1
+Introduction
+Grammatical error correction (GEC) is a crucial
+for supporting writers in their writing process, espe-
+cially new writers and those who do a large work-
+load in production and translation of administrative
+texts, educational material, news articles, fiction.
+For writers of Indigenous languages proofing
+tools have an even higher significance which is
+due to literacy in these languages. Indigenous and
+minority languages that compete with an official
+majority language typically stand much stronger
+orally than written, and competent speakers are not
+necessarily competent in writing to the same degree
+as in speech. However, a feeling of competence is
+an important factor in text production, and writers
+typically feel more confident when they can verify
+grammar and spelling. An increase in high-quality
+text production (representative of the language we
+want as an output) again is an important factor in
+developing large language models. In other words,
+we need a sufficient amount of the type of language
+we want to be produced as an input to the models,
+and in order to build a text corpus, we need some-
+one to writing skills and motivate native speakers to
+write. Behind that is usually the work of highly mo-
+tivated native language experts who actively push
+forward a language revitalization process (Olthuis
+et al., 2013). As a part of this process, language
+technology can provide the necessary tools like
+spell- and grammarcheckers.
+Up until late it has been obvious that linguisti-
+cally demanding tasks like grammatical error cor-
+rection require a component of expert-built, rule-
+steered grammar, not only to be accurate enough,
+but also to have the legitimacy of an expert control-
+ling the language norms and ongoing standardisa-
+tion. However, in the few recent years it has raised
+into a question if more data-driven approaches can
+also work for this problem. In this article we per-
+form some experiments to find out to which extent
+this is plausible and what kind of limitations there
+are.
+The research question we solve in this article is
+to evaluate how efficient the contemporary large
+language models are in the actual task of grammati-
+cal error correction—specifically in endangered
+language context with North Sámi as example
+study. We set to find out the effort needed to use
+them and develop existing systems. We also con-
+sider how much work it might take to fix problems
+in the large language models versus rule-based
+models when it comes to, e.g. bad suggestions and
+mistakes in the error detection (i.e. false positives).
+Regardless of the paradigm, the improvement of
+the system is driven by developers with language
+skills or developers with linguists co-operating, a
+resource that is very sparse. Another dimension is
+how time-critical the system is; a high quality GEC
+is a time critical resource for Indigenous language
+maintenance and revitalisation in digital era and
+leaving a low quality or disfunctional GEC with a
+promise of potential better version in the future is
+unacceptable.
+
+29.pdf:
+Adaptability of NLP Annotation Tools for Linguistics
+Changbing Yang1, Patricia Anderson2, Godfred Agyapong3, Sarah Moeller3
+1University of British Columbia, 2Revitalization Technology, 3University of Florida
+cyang33@student.ubc.ca, smoeller@ufl.edu
+As speech communities shrink (Krauss, 1992), linguists prioritize the documentation of these
+languages. A key part of documentation involves enriching texts with detailed linguistic
+annotations. Tools like ELAN (Auer et al. 2010) and FLEx (Rogers 2010) that are widely used
+for annotation tasks such as time-aligned transcription, free translation, or morpheme analysis,
+have two significant drawbacks: they are expensive to update and do not incorporate modern
+Natural Language Processing (NLP). Given that labor-intensive annotation is vital not only for
+linguistic documentation but also for NLP, many language annotation tools have emerged in
+recent years. The sheer abundance of these tools now presents an additional complexity for
+linguists wishing to take advantage of new annotation software.
+Our work aims to provide insights that help linguists and community language workers make
+informed choices and strengthen connections between their efforts and helpful AI. We
+systematically evaluate over 100 annotation tools, focusing on their features, sustainability, and
+graphical interface design. We established a list of criteria broken into specific questions1 to
+guide the evaluation. This abstract presents preliminary findings. A central question driving our
+research is whether tools designed for NLP are adaptable for endangered language
+documentation.
+Criteria of NLP Tools Adaptable to Linguistic Research
+To select the ideal annotation tool, users must navigate diverse specifications and purposes.
+Although the work of NLP and linguistics overlap, they differ in the exact subtasks, workflows,
+and priorities, particularly in ways that align with linguistic or community-based goals. Not all
+NLP annotation tools support the tasks or data needed by academic or community linguists. The
+following criteria address the challenge of identifying new tools that may supplement linguistic
+annotation software.
+1. Cost
+A tool’s financial model plays a critical role in its adaptability, as academic or community users
+often have limited funding. On the other hand, paid tools may provide better technical support
+and longevity.
+2. Sustainability and Longevity
+A tool’s long-term viability depends on active maintenance and the nature of the entity
+maintaining it. Proprietary tools tend to have more consistent maintenance, but some
+open-source projects thrive thanks to dedicated developer communities.
+1 Tools we evaluated are listed here: https://link/to/our/repo. We will make it publicly available in the final
+draft.
+
+28.pdf:
+Developing a Mixed-Methods Pipeline for Community-Oriented
+Digitization of Kwak’wala Legacy Texts
+Milind Agarwal1, Daisy Rosenblum2, Antonios Anastasopoulos1,
+1George Mason University, 2University of British Columbia,
+Correspondence: magarwa@gmu.edu
+Abstract
+Kwak’wala is an Indigenous language spoken
+in British Columbia, with a rich legacy of pub-
+lished documentation spanning more than a
+century, and an active community of speakers,
+teachers, and learners engaged in language revi-
+talization. Over 11 volumes of the earliest texts
+created during the collaboration between Franz
+Boas and George Hunt have been scanned but
+remain unreadable by machines. Complete dig-
+itization through optical character recognition
+has the potential to facilitate transliteration into
+modern orthographies and the creation of other
+language technologies. In this paper, we ap-
+ply the latest OCR techniques to a series of
+Kwak’wala texts only accessible as images, and
+discuss the challenges and unique adaptations
+necessary to make such technologies work for
+these real-world texts. Building on previous
+methods, we propose using a mix of off-the-
+shelf OCR methods, language identification,
+and masking to effectively isolate Kwak’wala
+text, along with post-correction models, to pro-
+duce a final high-quality transcription.1
+1
+Introduction
+In this work, we focus on the Kwak’wala language
+(Wakashan, ISO 639.3 kwk), spoken on Northern
+Vancouver Island, nearby small islands, and the
+opposing mainland. Kwak’wala and several other
+Indigenous languages in this region have over a cen-
+tury of of legacy documentation created by early
+anthropologists, primarily in orthographies devel-
+oped by Franz Boas to capture complex and typo-
+logically unusual phonetic and phonological inven-
+tories (Himmelmann, 1998; Grenoble and Whaley,
+2005). Kwak’wala, for example, has 42 consonant
+phonemes represented with a selection of charac-
+ters from the North American Phonetic Alphabet
+(cousin to the IPA), and over 13 possible vowel
+pronunciations represented with a heavy dose of
+1Relevant code and data resources are available here.
+diacritics and digraphs in all its scripts. During the
+first half of the 20th-century, scripts such as these
+were created and used by ethnologists, researchers,
+and collectors to transcribe the languages spoken
+in communities across North America. Between
+1897 and 1965, an extensive series of texts in In-
+digenous languages was published by the United
+States Bureau of American Ethnology (BAE, now
+the Smithsonian). The collaboration between Franz
+Boas and George Hunt generated 11 volumes of
+published texts over 50 years, as well as extensive
+unpublished documentation. This script is difficult
+for anyone to read, amplifies phonetic complexity,
+and is primarily considered a legacy script, limiting
+access only to a few. However, many precious doc-
+uments with detailed information of cultural value,
+were created in this script (see Figure 1), necessi-
+tating their accurate digitization and transliteration
+into modern Kwak’wala writing systems. Note that
+while Kwak’wala is classified as an endangered
+language with most first-language speakers over
+the age of 70, it has thriving language revitaliza-
+tion programs focused on creating new speakers
+among children and adults. Research progress for
+Kwak’wala and its three scripts (U’mista in the
+Northern communities, SD-72 in the Southern com-
+munities, and the legacy Boas-Hunt script) is ur-
+gent to better support revitalization and educational
+efforts led by community members.
+Currently,
+Kwak’wala, like many other ‘low-resource’ endan-
+gered and Indigenous languages, lags behind in the
+number of available computational tools (Agarwal
+and Anastasopoulos, 2024).
+To remove this disadvantage and enable greater
+online community participation, in our project, we
+focus on digitization of valuable Kwak’wala texts,
+prioritized according to community needs, to en-
+able building tools such as word processing, speech
+to text, predictive typing, etc. We create these
+resources by applying existing optical character
+recognition and language identification techniques,
+
+10.pdf:
+Evaluating Indigenous language speech synthesis for education: A
+participatory design workshop on Ojibwe text-to-speech
+Viann Sum Yat Chan, Christopher Hammerly
+Department of Linguistics
+University of British Columbia
+Vancouver, Canada
+chan.sum@northeastern.edu
+chris.hammerly@ubc.ca
+Abstract
+This paper reports methods and results from a
+participatory design workshop aimed at evalu-
+ating the use of speech synthesis and text-to-
+speech for Ojibwe language education. Using
+an existing text-to-speech feature as a starting
+point, we worked with two groups of Ojibwe
+language instructors using a guided trial of the
+speech synthesis system and a two hour semi-
+structured workshop with the aim of creating
+a lesson plan that utilizes text-to-speech. We
+highlight the insights from this work, both in
+how to design and deliver speech synthesis sys-
+tems for Indigenous language education, but
+also how to approach and design such a work-
+shop to ensure a fruitful discourse.
+1
+Introduction
+Ojibwe is a North American Indigenous language
+in the Algonquian family known in different re-
+gions as Anishinaabemowin, Nishnaabemwin and
+Ojibwemowin. It is spoken in both the US and
+Canada, with 25,440 speakers recorded in the 2021
+Canadian Census (Statistics Canada, 2023). Colo-
+nial policies like the residential school system
+aimed to force assimilation through means such as
+reduced use of the language and separation of chil-
+dren from their families (Truth and Reconciliation
+Commission of Canada, 2015). Because of this,
+the Ojibwe speaker population is characterized by
+a high average age of L1 speakers and a parent gen-
+eration who may understand the language but do
+not primarily speak it to their children (UNESCO,
+2010).
+In addition to its effects on language use within
+families, the lack of L1 speakers in the current
+parent generation also means many instructors of
+Ojibwe are as much learners of the language as
+they are teachers (Engman and Hermes, 2021). Be-
+cause not all families are able to support students’
+language learning at home, students rely heavily on
+their teachers and peers in the classroom to prac-
+tice the language, thus limiting their exposure to
+the language in other contexts and environments.
+Combined with the unique position of teachers
+as teacher-learners, the task of teaching Ojibwe
+poses challenges beyond what is typical of second-
+language learning.
+One way to address this issue is through the
+development of synthetic text-to-speech (TTS) sys-
+tems which can act as an audio supplement to ex-
+isting text-based tools like verb conjugators, dictio-
+naries, and phrasebooks (Pine et al., 2024). Cur-
+rently, there are 70 Indigenous languages spoken
+throughout Canada, but only a handful of exist-
+ing TTS systems (e.g. Harrigan et al., 2019; Pine
+et al., 2022; Conrad, 2020; Hammerly et al., 2023).
+Low-resource languages face challenges in the de-
+velopment of TTS due to a limited number of fluent
+speakers and these speakers having limited time to
+record data for training. Pine et al. (2024) also iden-
+tifies challenges in the evaluation of Indigenous
+TTS systems—a small L1 population means there
+might not be a large enough sample to contribute to
+a meaningful and generalizable quantitative evalua-
+tion of the synthetic speech system. While efforts
+to create TTS systems have been successful, not
+much work has been done to investigate how lan-
+guage communities are using these TTS systems,
+and whether the intended benefits can be enjoyed.
+The goal of the current study is therefore to an-
+swer the following research questions:
+1. What are the strengths and limitations of our
+existing Ojibwe TTS feature?
+2. What are teachers’ priorities when approach-
+ing new tools in educational technology like
+TTS?
+These questions address the present and the future
+of developing TTS for Ojibwe and other Indige-
+nous languages. Exploring the strengths and limita-
+tions of TTS can help us troubleshoot existing prob-
+lems, while understanding teachers’ priorities when
+
+39.pdf:
+Comparing efficacy of IPA vs Pinyin romanisation transcriptions for
+complex tonal languages: A case study in Baima
+Katia Chirkova
+CNRS-CRLAO
+katia.chirkova@gmail.com
+Rolando Coto-Solano
+Dartmouth College
+rolando.a.coto.solano@dartmouth.edu
+Rachael Griffiths
+EPHE-PSL
+rachael.griffiths@ephe.psl.eu
+Marieke Meelen
+University of Cambridge
+mm986@cam.ac.uk
+Abstract
+How is automated tone transcription affected
+by the choice of transcription orthography? In
+this paper we present a range of experiments
+that indicate that, even when the tonal repre-
+sentations are kept the same, the way vowels
+and consonants are transcribed can affect tonal
+character outputs. Our results also indicate that
+using a Language Model (LM) for decoding
+can mitigate problems with tonal outputs, but
+tones remain the most difficult part of the tran-
+scription. In doing this we also present the first
+Automatic Speech Recognition (ASR) models
+for the Baima language, spoken in Sichuan and
+Gansu, China. We hope to use these models to
+contribute to ongoing documentation efforts.
+1
+Introduction
+Researchers who start documenting endangered
+languages without writing systems often face the
+challenge of a race against the clock to collect and
+transcribe as much data as possible before the lan-
+guage disappears. With extremely limited access
+to native speakers who are not only essential when
+gathering, but also when transcribing and inter-
+preting data, linguists and community members
+interested in preserving the language have to make
+crucial choices on how to spend limited time with
+informants. Is it worth the tremendous amount
+of time and effort to preserve every detail using
+the International Phonetic Alphabet (IPA) to facil-
+itate further research in the sound system of the
+language? Or should they choose a local and/or
+romanised script to speed up transcription and to
+increase the possibilities of language revitalisation?
+In this paper we present several ASR experi-
+ments to gain further insight into these important
+practical questions, focusing on the Baima lan-
+guage, spoken in Sichuan and Gansu, China. With
+three native tones, tone sandhi and tonal borrow-
+ings as well as complex consonantal onsets and
+epiglottalisation, this language forms the perfect
+case to test the trade-off of different transcription
+systems. In addition to tests with different base
+models, LMs and transcription systems, we will
+also do an in-depth error analysis of each of the
+tones to gain insight into which are more challeng-
+ing for specific models. The results will therefore
+not only further work on ASR for tonal languages
+but also help researchers and speaker communities
+working on language documentation and revitalisa-
+tion to choose how to best spend limited time and
+resources in order to get the best possible results.
+1.1
+Baima Language
+Baima (/pêkê/, Chinese 白马语báimˇayˇu, ISO-
+639 code bqh) is a Tibeto-Burman (Tibetic) lan-
+guage spoken at the border of Sichuan and Gansu
+provinces in China. The language has approxi-
+mately 10,000 speakers, who reside in the coun-
+ties of Pingwu, Songpan (Tib. Zung chu), and Ji-
+uzhaigou (Tib. Gzi rtsa sde dgu) in Sichuan, and in
+the counties of Wenxian and Zhouqu (Tib. ’Brug
+chu) in Gansu.
+The area of distribution of the Baima language
+lies at the historical Sino-Tibetan border, in a multi-
+ethnic and multilingual region.
+In all counties
+of its present distribution, immediate linguistic
+neighbours of Baima include varieties of Mandarin
+(mostly Southwestern Mandarin) and Tibetic lan-
+guages. To our knowledge, there are no longer any
+monolingual speakers of Baima, as all age groups
+are bilingual in the local varieties of Mandarin.
+Mandarin (both the local varieties and the closely
+related Standard Mandarin, the official language
+of the People’s Republic of China) also dominates
+the education system and work in public domains.
+Baima is not used in writing or education and its
+use is mostly restricted to family and community
+events. For those reasons, it is severely endan-
+gered.1
+1https://www.ethnologue.com/language/bqh/
+
+11.pdf:
+Zero-Shot Query Generation for
+Approximate Search Algorithm Evaluation
+Aidan Pine1, David Huggins-Daines2, Carmen Leeming2,
+Patrick Littell1, Timothy Montler3, Heather Souter4, Mark Turin5
+1National Research Council Canada, 2Independent Researcher,
+3University of North Texas, 4University of Winnipeg, 5University of British Columbia
+Correspondence: aidan.pine@nrc-cnrc.gc.ca
+Abstract
+Approximate search is a valuable component of
+online dictionaries for learners, allowing them
+to find words even when they have not fully
+mastered the orthography or cannot reliably
+perceive phonemic differences in the language.
+However, evaluating the performance of dif-
+ferent approximate search algorithms remains
+difficult in the absence of real user queries. We
+detail several methods for generating synthetic
+queries representing various user personas. We
+then compare the performance of several search
+algorithms on both real and synthetic queries
+in two Indigenous languages, SEN ´COTEN and
+Michif, that are phonologically and morpholog-
+ically very different from English.
+1
+Introduction
+Online dictionaries are one of the most commonly
+used and important tools in language revitalization
+and reclamation programs (Anderson, 2020; Leav-
+itt, 2023; Lyon et al., 2023). For under-resourced
+languages, online dictionaries are very often the
+only lexical resource available to learners in a com-
+munity where no print dictionary has ever been
+compiled or published. For authoritative monolin-
+gual dictionaries, such as the Oxford English Dic-
+tionary, users are assumed to be fluent and literate
+in the language of the dictionary. The same expec-
+tations of users of bilingual dictionaries and phrase-
+books in language revitalization contexts cannot
+be made. Users of bilingual dictionaries are of-
+ten learners, and trying to harness the power of
+an online dictionary can present learners with an
+unwelcome paradox: they may wish to look up a
+word in the dictionary in order to learn it and/or
+verify the spelling, but in order to look it up in a
+dictionary with only an exact-match search algo-
+rithm, they already need to know exactly how to
+spell it. This can lead to a Catch-22, particularly
+with complex writing systems for which keyboard
+input systems are less standardized or easily avail-
+able. For these reasons, it is extremely important in
+a language learning context that users can benefit
+from fuzzy search algorithms that accommodate
+anticipated errors or idiosyncratic spellings.
+Despite the importance of online dictionaries
+in language revitalization, they remain resource-
+intensive endeavours that are often the first project
+that communities and scholars start and the last one
+to be completed (Sear and Turin, 2021; Schreyer
+and Turin, 2023). Compiling lexicographic data,
+let alone managing and maintaining software, web-
+sites and mobile apps all present significant techni-
+cal hurdles (Trotter et al., 2023). On top of these
+requirements, building a language-specific approx-
+imate search algorithm is also a significant chal-
+lenge. In some cases, language models already
+exist for the language in question and can be ap-
+plied to provide morphologically-aware search re-
+sults (Johnson et al., 2013; Arppe et al., 2021).
+Alternatively, Littell et al. (2017) describe soft-
+ware that allows users to define language spe-
+cific phonologically-aware approximate search al-
+gorithms. Originally published under the name
+Waldayu, the software was generalized and re-
+named ‘Mother Tongues Dictionaries’ (MTD) in
+2018. MTD is a Python library and collection of
+visualization frameworks that, given the MTD data
+specification, allows users to create online dictio-
+naries (web, Android, iOS) from a potentially het-
+erogeneous set of data (i.e., a spreadsheet, JSON
+file, and XML file). In addition to the data wran-
+gling and visualization capabilities of the library,
+it also allows users to customize an approximate
+search algorithm based on weighted or unweighted
+edit distances. MTD has been used to develop
+online dictionaries for dozens of Indigenous lan-
+guages around the world including in Canada, the
+US, and Japan.
+Since 2017, the MTD search algorithm has been
+updated to allow multi-word, multi-field search,
+
+23.pdf:
+1 
+ 
+ 
+Abstract 
+1 
+In this paper, we discuss the development 
+2 
+of a long-term partnership between 
+3 
+community and university-based language 
+4 
+workers to create supportive language 
+5 
+technologies for Tsuut'ina, a critically 
+6 
+endangered Dene language spoken in 
+7 
+southern 
+Alberta, 
+Canada. 
+Initial 
+8 
+development activities in this partnership 
+9 
+sought 
+to 
+rapidly integrate existing 
+10 
+language materials, with the aim of arriving 
+11 
+at tools that would be effective and 
+12 
+impactful for community use by virtue of 
+13 
+their extensive lexical coverage. We 
+14 
+describe 
+how, 
+as 
+this 
+partnership 
+15 
+developed, this approach was gradually 
+16 
+superseded by one that involved a more 
+17 
+targeted, 
+lexical-item-by-lexical-item 
+18 
+review process that was directly informed 
+19 
+by other community language priorities and 
+20 
+connected to the work a local language 
+21 
+authority. We describe how this shift in 
+22 
+processes correlated with other changes in 
+23 
+local language programs and priorities, 
+24 
+noting 
+how 
+ongoing 
+communication 
+25 
+allowed this partnership to adapt to the 
+26 
+evolving needs of local organizations. 
+27 
+1 
+Introduction 
+28 
+Tsuut’ina (ISO 639-3: 
+srs, Glottocode: 
+29 
+sars1236) is a Dene language spoken by 
+30 
+members of the Tsuut'ina Nation, a signatory to 
+31 
+Treaty 7 in present-day southern Alberta, Canada. 
+32 
+Together with Plains Apache, Tsuut'ina is one of 
+33 
+only two Dene languages spoken on the Great 
+34 
+Plains, and is separated from other members of the 
+35 
+Dene language family by surrounding Algonquian 
+36 
+and Siouan-speaking Indigenous nations. As of 
+37 
+October 2024, there are 18 first-language speakers 
+38 
+of Tsuut'ina, all over the age of 75 and almost all 
+39 
+residing at the Tsuut'ina Nation (Tsuut'ina Gunaha 
+40 
+Institute, p.c.). While Tsuut'ina is thus critically 
+41 
+endangered, strong connections between Tsuut’ina 
+42 
+language and community identity and culture have 
+43 
+fostered equally strong retention of Tsuut’ina 
+44 
+language proficiency among present-day speakers. 
+45 
+These same connections have also encouraged 
+46 
+community-based 
+language 
+documentation, 
+47 
+education, and revitalization initiatives, including 
+48 
+those supported by collaborations with individuals 
+49 
+and organizations outside of the Tsuut'ina Nation, 
+50 
+as discussed in this paper. 
+51 
+ From a linguistic perspective, Tsuut'ina closely 
+52 
+resembles other Dene languages, with complex, 
+53 
+prefixing, polysynthetic verbal morphology (cf. 
+54 
+Cook, 1984; Rice, 2000; Rice, 2020). Tsuut'ina also 
+55 
+relies heavily on tone to convey both lexical and 
+56 
+grammatical distinctions, having one of the largest 
+57 
+inventories of tone contrasts attested in the Dene 
+58 
+language family (cf. Sapir, 1925; McDonough et 
+59 
+al., 2013; Starlight & Cox, 2024). While previous 
+60 
+research on the language conducted by both 
+61 
+Tsuut'ina and non-Tsuut'ina linguists has resulted in 
+62 
+notable collections of textual and grammatical 
+63 
+documentation (e.g., Goddard, 1915; Onespot & 
+64 
+Sapir, 1922; Cook, 1984; Starlight, Moore & Cox 
+65 
+2018; among others), linguistic research into 
+66 
+aspects of Tsuut'ina grammar is ongoing, with 
+67 
+many areas of grammatical organization still under 
+68 
+active investigation. Both the presence of open 
+69 
+questions concerning basic grammatical features of 
+70 
+Creating an intelligent dictionary of Tsuut’ina one verb at a time 
+ 
+                                       Christopher Cox                                               Bruce Starlight 
+               Tsuut'ina Gunaha Institute / Carleton University                       Tsuut'ina Nation 
+             christopher.cox@tsuutina.com          spottedeagle1947@yahoo.com 
+ 
+                                   Janelle Crane-Starlight                                      Hanna Big Crow 
+                                        Tsuut'ina Nation                                        Tsuut'ina Gunaha Institute 
+              janelle.crane@tsuutina.com           hanna.bigcrow@tsuutina.com 
+ 
+Antti Arppe 
+University of Alberta 
+arppe@ualberta.ca
+
+37.pdf:
+Integrating diverse corpora for training an
+endangered language machine translation system
+Hunter Scheppat1, Joshua K. Hartshorne2, Dylan Leddy1,
+Éric Le Ferrand1, Emily Prud’hommeaux1
+1Boston College, 2MGH Institute of Health Professions
+{scheppat,leferran,prudhome}@bc.edu,joshua.hartshorne@hey.com
+Abstract
+Machine translation (MT) can be a useful tech-
+nology for language documentation and for pro-
+moting language use in endangered language
+communities. Few endangered languages, how-
+ever, have an existing parallel corpus large
+enough to train a reasonable MT model. In
+this paper, we re-purpose a wide range of di-
+verse data sources containing Amis, English,
+and Mandarin text to serve as parallel corpora
+for training MT systems for Amis, one of the In-
+digenous languages of Taiwan. To supplement
+the small amount of Amis-English data, we pro-
+duce synthetic Amis-English data by using a
+high quality MT system to generate English
+translations for the Mandarin side of the Amis-
+Mandarin corpus. Using two popular neural
+MT systems, OpenNMT and NLLB, we train
+models to translate between English and Amis,
+and Mandarin and Amis. We find that including
+synthetic data is helpful only when translating
+to English. In addition, we observe that nei-
+ther MT architecture is consistently superior
+to other and that performance seems to vary
+according to the direction of translation and the
+amount of data used. These results indicate that
+MT is possible for an under-resourced language
+even without a formally prepared parallel cor-
+pus, but multiple training methods should be
+explored to produce optimal results.
+1
+Introduction
+The potential of language technology to support
+endangered language documentation and revitaliza-
+tion efforts is well established though not always
+effectively realized (van Esch et al., 2019). Ma-
+chine translation (MT) in particular has been cited
+as a useful tool (Zhang et al., 2020; Bird and Chi-
+ang, 2012). First, translation from an indigenous
+language into a more widely spoken language is
+a common, if not required, part of generating lin-
+guistic documentation. This also ensures that un-
+derstanding of the language will continue even if
+the language ceases to be used regularly (Bird and
+Chiang, 2012). Second, MT is often proposed as
+a way to make languages more accessible to lan-
+guage learners in Indigenous communities where
+younger generations were not raised speaking the
+language(Pinhanez et al., 2024). Finally, MT is
+appealing to NLP researchers because generating a
+new dataset only requires the expertise of a speaker
+to produce a translation; translation does not re-
+quire complex software to control audio playback
+or alignment of audio with transcription, as speech
+transcription might, or extensive annotator training
+as part-of-speech tagging or parsing would.
+Unfortunately, building a reasonable MT system
+with the quantity of parallel data typically available
+for an endangered language is remarkably chal-
+lenging. There are few existing parallel corpora,
+and since nearly half of the world’s languages lack
+an established writing system or written tradition
+(Eberhard et al., 2024), there are generally very few
+texts in the target language that can be translated
+in order to create a parallel corpus.
+In this paper, we describe a broad effort to com-
+pile two parallel corpora – one with English and
+one with Mandarin – for Amis, one of the 16 rec-
+ognized indigenous languages of Taiwan. We use
+nine different public sources1 for our parallel data,
+which range from digital dictionaries to pedagog-
+ical materials to websites with user-contributed
+translations to YouTube videos curated and trans-
+lated by Taiwan’s Indigenous Language Research
+and Development Foundation. Since very little
+of this data includes English translations, we also
+generate synthetic Amis-English parallel data by
+using Mandarin as a pivot language, using high-
+quality MT to produce English translations of the
+Mandarin side of the Amis-Mandarin parallel data.
+Using two different popular neural MT archi-
+1Please see the Ethical Considerations section for details
+about our data use agreements.
+
+22.pdf:
+Multilingual MFA: Forced Alignment on Low-Resource Related Languages
+Alessio Tosolini
+Yale University
+Department of Linguistics
+alessio.tosolini@yale.edu
+Claire Bowern
+Yale University
+Department of Linguistics
+claire.bowern@yale.edu
+Abstract
+We compare the outcomes of multilingual and
+crosslingual training for related and unrelated
+Australian languages with similar phonologi-
+cal inventories. We use the Montreal Forced
+Aligner to train acoustic models from scratch
+and adapt a large English model, evaluating
+results against seen data, unseen data (seen lan-
+guage), and unseen data and language. Results
+indicate benefits of adapting the English base-
+line model for previously unseen languages.
+1
+Introduction
+Forced Alignment (the matching of textual anno-
+tations with audio and/or video data, particularly
+at the level of phonological segments) is a very
+useful step in language analysis. Software such as
+ELAN (Wittenburg et al., 2006) allows straightfor-
+ward (but mostly manual) transcription and align-
+ment at the granularity of utterances. Alignment
+algorithms such as the Montreal Forced Aligner
+(McAuliffe et al., 2017) take utterances and align
+them at the level of words and segments, allowing
+a much greater array of analytical possibilities.
+Forced Alignment requires an acoustic model
+and information about the mapping between the
+transcription system and the phonemes in the lan-
+guage (g2p).
+Acoustic models require training
+data, and the paucity of available materials for
+low-resource languages leads to lower model per-
+formance. Low-resource language materials are
+disproportionately created in naturalistic environ-
+ments (outside quiet, controlled lab settings) and so
+in addition to having smaller amounts of data, the
+data that is there may be disproportionately difficult
+to work with.
+Various methods exist for increasing perfor-
+mance, including a) using a very high resource
+language (mostly English) and adapting phoneme
+mappings to the high resource language; b) adapt-
+ing a high-resource language model; c) using a
+closely related high-resource language model; d)
+using pretrained spoken term detection to identify
+particular words (San et al., 2021); or e) training
+a language-specific model despite small amounts
+of data and correcting manually. Chodroff et al.
+(2024) compared these techniques and found that
+for small amounts of data (under approximately
+25 minutes for their Urum and Evenki datasets),
+large cross-language and language-specific acous-
+tic models were effective, but where the amount of
+low-resource data is larger than about 25 minutes, a
+model trained on that data is as effective. Findings
+by San et al. 2024 show that crosslingual transfer
+from models, as one might expect, is more effective
+when the languages are phonologically similar.
+For forced aligning Australian Indigenous cor-
+pus data, however, the question is somewhat dif-
+ferent. In this case, we have a large number of
+phonologically similar (Round, 2023) but small
+corpora, which vary by number of contributors,
+circumstances and dates of recording, and lan-
+guage phonotactics. Since the languages are phono-
+logically (and perhaps phonetically; Fletcher and
+Butcher 2014; Tabain et al. 2016) similar, pool-
+ing data should lead to more robust and accurate
+alignment models. Conversely, since the languages
+differ in phonotactics (Macklin-Cordes et al., 2021)
+and comprise different speakers, the increase in
+heterogeneity may limit improvements in model
+performance. Moreover, since even pooling data
+does not make the model “large” by “large corpus”
+standards, it may still be preferable to use or adapt
+a large model.
+For small corpora, overfitting is seldom a prob-
+lem; model performance on the data at hand is
+often the sole criterion. In this case, however, we
+care about performance increases on both held-out
+data and held-out languages, as we will continue to
+develop the corpus and hope the release models for
+others working with Australian language data.
+In this paper, we describe results of model train-
+
+20.pdf:
+Building culturally relevant multimedia resources for Indigenous
+languages using AI tools and collaborative development
+(extended abstract)
+ChatGPT C-Lara-Instance1,2, Belinda Chiera2, Anne-Laure Dotte3,
+Stéphanie Geneix-Rabault3, Christèle Maizonniaux4, Sophie Rendina5,
+Manny Rayner2, Fabrice Wacalie3, Pauline Welby6
+1OpenAI, US, 2University of South Australia, Australia, 3University of New Caledonia,
+4Flinders University, Australia, 5Kowanyama Community, Australia, 6CNRS, France
+Correspondence: Manny.Rayner@unisa.edu.au
+1
+Introduction and overview
+People who wish to improve their reading abil-
+ities in a non-L1 language derive many advan-
+tages from using multimedia texts, which can in-
+corporate images, audio, glosses, translations and
+other kinds of annotations. For large languages
+(English, Arabic, Mandarin...)
+there have for
+some time been commercial platforms like LingQ1
+which host such texts.
+More recently, the rise
+of generative AI has made it possible to develop
+platforms which let users easily create their own
+multimedia texts. An early example is the open
+source C-LARA platform (https://www.c-l
+ara.org/; (Bédi et al., 2023a, 2024)), which har-
+nesses OpenAI’s GPT-4o and DALL-E-3 to write
+and annotate illustrated multimedia texts from re-
+quests provided by the user.
+It is in principle attractive to use such plat-
+forms to create multimodal teaching resources for
+Indigenous languages, which typically have little
+such material available. Images are particularly
+problematic. Downloading from the Web usually
+gives images which are more or less culturally in-
+appropriate, and commissioning artists to create
+appropriate images is slow and expensive (Olko
+and Sallabank, 2021, Chapter 17). The second C-
+LARA report (Bédi et al., 2024, §7.3) describes
+experiments where the platform was used to con-
+struct resources for Drehu and Iaai, two Kanak
+languages spoken in New Caledonia.2 Although
+the exercise was eventually successful, the process
+showed that platforms of this kind, as currently
+implemented, are harder to use for Indigenous lan-
+guages than for the large languages they were orig-
+1https://www.lingq.com/
+2Related exercises from the predecessor LARA project
+are described in (Zuckerman et al., 2021; Bédi et al., 2022;
+Rayner and Wilmoth, 2023).
+inally designed for.
+There are two main prob-
+lems. First, since the AI does not know the lan-
+guages concerned, it is unable to write or annotate
+the texts, and this work must thus be performed
+manually. The human annotator is working with
+multiple parallel versions of the text, annotated in
+different ways (glossed, lemma tagged, translated,
+etc); in practice, the different versions often get
+out of sync, and it is laborious for the human to
+correct the divergences. Second, although the AI
+is able to create accompanying images, its limited
+knowledge of the cultural context means that the
+generation process often needs to go through many
+versions until an acceptable image is produced.
+In this abstract, we outline recent work in C-
+LARA which addresses the above issues.
+We
+briefly describe the platform (§2), the process of
+creating images (§3), the incorporation of pho-
+netic information (§4), the types of texts being de-
+veloped (§5), and the current status of the project
+(§6).
+2
+Relevant aspects of C-LARA
+As noted in the preceding section, a C-LARA
+project maintains multiple parallel versions of the
+text: plain text, segmented text (i.e. text divided
+into pages and sentence-like units), text with word
+gloss annotations, text with segment translation
+annotations, text with lemma tag annotations, and
+text with multi-word expression annotations. We
+have adapted the way these various versions are
+presented to address the issues posed by languages
+where the annotation must be performed manually.
+In particular, we target the problems arising from
+the fact that human annotation is much more likely
+to introduce careless errors than AI annotation.
+First, we present the material in a different way.
+
+21.pdf:
+Towards a Hän morphological transducer
+Maura O’Leary1, Joseph Lukner2, Finn Verdonk2,
+Willem de Reuse3, Jonathan Washington2
+1Western Washington University
+2Swarthmore College
+3The Language Conservancy
+Correspondence: Maura.O’Leary@wwu.edu, Jonathan.Washington@swarthmore.edu
+Abstract
+This paper presents work towards a morphologi-
+cal transducer for Hän, a Dene language spoken
+in Alaska and the Yukon Territory. We present
+the implementation of several complex morpho-
+logical features of Dene languages into a morpho-
+logical transducer, an evaluation of the transducer
+on corpus data, and a discussion of the future uses
+of such a transducer towards Hän revitalization ef-
+forts.
+1
+Introduction
+In this paper, we present work towards a morpho-
+logical transducer for the Dene language Hän. The
+paper provides background on Hän, data collection,
+and morphological transducers (§2); overviews deci-
+sions made during implementation as well as our ap-
+proaches to various challenges presented by Hän mor-
+phology (§3); and offers a preliminary evaluation (§4),
+directions for future work (§5), and some concluding
+thoughts (§6). The eventual goal is for this transducer
+to complement ongoing revitalization efforts.
+2
+Background
+2.1
+Hän
+Hän (ISO 639-3: haa) is a Dene (more specifically,
+Northern Athabaskan) language spoken in the Na-
+tive Village of Eagle in Alaska, USA, and in Moose-
+hide, Yukon Territory, Canada. Hän is a critically en-
+dangered language, with only five remaining native
+speakers. While the number of native speakers is low,
+the communities in both Eagle and Moosehide are
+both engaged in significant revitalization efforts, in-
+cluding locally taught introductory language courses,
+language teacher training, and the creation of learning
+materials (lessons, textbooks, flashcards, etc.).
+The primary complication in the process of learn-
+ing (and thereby also in the process of revitalizing)
+an Athabaskan language is the rather complex verbal
+morphology. Verbs often surface with a string of both
+derivational and inflectional prefixes, which can be
+difficult for speakers of less-inflecting languages such
+as English. The complexity of Hän verbs stands in
+stark contrast to every other lexical category, which
+are at most bimorphemic.
+In order to progress the community’s revitalization
+efforts, there is a clear need for an understanding of
+Hän’s verbal morphology. Understanding the inner
+workings of verbs has been a long-standing battle for
+many Athabaskan languages (see Rice, 2000, for an
+overview of many of the relevant works), and Hän is
+no exception. We intend for this transducer, and the
+resources which stem from it, to clarify the inner work-
+ings of the Hän verb as an aid to future Hän language
+learners.
+Table 1 presents the structure of verbs in Hän, with
+some example verb forms broken down accordingly
+in Table 2. Each cell represents a distinct morpheme
+“slot”. Many of the slots are optional—a valid verb
+form must contain at a minimum a stem marked for
+aspect and a subject marker. However, some verbs ad-
+ditionally require other elements, such as a theme or
+disjunctive prefix. Additionally, several slots interact
+with one another; for example, generally subject mor-
+phology is indicated in the slot before the stem, but
+plurality is indicated by a morpheme’s occurrence in
+the “plural subject” slot for 3rd person plural and an-
+other morpheme’s occurrence in the “deictic subject”
+slot for 1st person plural. Object marking and the pres-
+ence of a reflexive morpheme appear to be mutually
+exclusive. 3rd person singular object markers vary de-
+pending on the person features of the subject (Lehman
+and O’Leary, 2019). Object marking is used only if an
+overt object DP is not present in situ in the verb phrase
+(Manker, 2014). Additionally, the specific form of
+subject marking depends on the classifier (l, ł, 0, or d),
+the aspect (imperfective, perfective, etc.), and the con-
+jugation marking (0, dh, gh) associated with the verb
+stem (de Reuse and Las, 2014). Verb stems alternate
+irregularly for a given lexeme based on aspect and
+sometimes number of the subject (de Reuse, 2015b,a).
+
+35.pdf:
+Data augmentation for low-resource bilingual ASR from Tira linguistic
+elicitation using Whisper
+Mark Simmons
+University of California San Diego
+mjsimmons@ucsd.edu
+Abstract
+This paper explores finetuning Whisper for tran-
+scribing audio from linguistic elicitation of Tira,
+a Heiban language of Sudan. Audio originates
+from linguistic fieldwork and is bilingual in En-
+glish and Tira. We finetune Whisper large-v3
+using hand-labeled Tira audio and evaluate the
+resulting model on bilingual audio. We show
+that Whisper exhibits catastrophic forgetting of
+English after only a small amount of training,
+but that including automatically annotated En-
+glish spans of audio in the training data dramati-
+cally reduces catastrophic forgetting of English
+while largely preserving ASR performance on
+monolingual Tira audio. This work is relevant
+to the study of automatic speech recognition
+for under-resourced languages and for contexts
+of bilingualism in a high and low-resourced
+language.
+1
+Introduction
+Automatic speech recognition (ASR) tools convert
+speech into text, enabling rapid transcription or cap-
+tioning of audio. Recent ASR models have reached
+or exceeded human performance at transcription
+on high-resource languages such as English (Rad-
+ford et al., 2022), however performance lags in
+under-resourced languages and in contexts of code-
+switching (where multiple languages are used in a
+single conversation). While research on expanding
+Whisper’s performance on low-resource languages
+exists (e.g. Lord and Newman, 2024; Liu et al.,
+2024; Williams et al., 2023; Qian et al., 2024), less
+work has been done on improving performance
+in code-switched scenarios. Code-switching is an
+under-addressed topic in ASR and in NLP in gen-
+eral, and research there often focuses on a few high-
+resource language pairs, such as Spanish-English,
+Mandarin-English or Hindi-English (Winata et al.,
+2023).
+Peng et al. (2023) evalute Whisper on
+Mandarin-English code-switched audio and Kulka-
+rni et al. (2023), on Mandarin-English, Arabic-
+English and Hindi-English, for example.
+The majority of languages in the world can be
+classified as ‘ultra low-resource’ in terms of the
+amount of NLP research and tools available for
+them (Liu et al., 2022). While ASR research for
+such languages exists (e.g. Prud’hommeaux et al.,
+2021; Adams et al., 2018; Amith et al., 2021; Mi-
+tra et al., 2016), the only work we are aware of
+that addresses ASR with an ultra low-resource lan-
+guage paired with a high resource language is San
+et al. (2022), which uses a corpus of single-speaker
+audio in English and Muruwari, though they only
+use ASR for English in their corpus. Thus, we
+are not aware of any work that directly addresses
+code-switched ASR involving at least one ultra
+low-resource language.
+In this paper, we evaluate Whisper on bilingual
+audio in English and Tira, an ultra low-resource
+language of the Heiban family spoken in the Nuba
+mountains region of Sudan, before and after fine-
+tuning on monolingual audio in Tira. Audio comes
+from linguistic elicitation on Tira conducted by the
+authors and other colleagues in the Tira language
+project in collaboration with native Tira speaker
+Himidan Hassen. Linguistic elicitation refers to
+the process of studying the grammar of a language
+by “asking questions” from native speakers (Mosel,
+2008). This often involves use of a metalanguage,
+a language spoken in common between the linguist
+and language speaker, in this case English, to ask
+for translations of words, paradigms, or sentences
+into the target language, or to elicit morphological
+paradigms for a given word in the target language.
+Audio from the Tira language project, then, con-
+tains speech both in Tira and English. While elic-
+itation is different than classical code-switching,
+where interlocutors use multiple languages to com-
+municate (often within the same utterance), the
+challenges faced in ASR for bilingual elicitation
+are largely the same as those faced in ASR for code-
+switched audio, thus, we use the term “bilingual
+
+31.pdf:
+Abstract 
+This paper presents the creation of a Universal 
+Dependency (UD) treebank for Amahuaca (Peru), 
+marking the first UD treebank within the Headwaters 
+subbranch of the Panoan family, spoken mostly in Peru 
+and Brazil. While the UD guidelines provided a general 
+framework for our annotations, language-specific 
+decisions were necessary due to the rich morphology 
+of the Amahuaca language. The paper also describes 
+specific constructions to initiate a discussion on several 
+general UD annotation guidelines, particularly those 
+concerning clitics and morpheme-level dependencies. 
+1 
+Introduction 
+This paper describes the methodology employed 
+in the creation of the UD treebank for the 
+language. On the one hand, this treebank aims to 
+enhance the future development of an NLP toolkit 
+for this language as well as contribute to its 
+revitalization.  On the other hand, this work aims 
+also to contribute to the discussion on how to 
+integrate polysynthetic languages into the 
+lexically oriented framework of Universal 
+Dependencies (UD). Following Park et al. (2021), 
+we argue that adopting a morpheme-level 
+framework 
+is 
+indispensable 
+due 
+to 
+the 
+morphosyntax of Amahuaca. Specifically, it is 
+crucial to accurately capture the intricate 
+morphological relationships and dependencies 
+within the language, particularly considering the 
+unique characteristics of clitic behavior and their 
+interaction with other morphemes. By focusing on 
+morpheme-level annotations, we aim to provide a 
+clearer understanding of the syntactic structure 
+and the grammatical functions of various 
+elements. This approach facilitates a deeper 
+exploration 
+of 
+the 
+language's 
+complexity, 
+ultimately contributing to more effective natural 
+language processing applications and linguistic 
+analysis. 
+The structure of the paper is as follows: Section 2 
+provides a brief overview of some notable 
+features of the Amahuaca language. Section 3 
+explains the reasons behind our choice of 
+morpheme-level analysis and presents the 
+dependency relations found. Section 4 details the 
+data collection process as well as the composition 
+of the corpus. The following sections present the 
+POS tags and the dependency relations. Section 7 
+focuses 
+on 
+the 
+comparison 
+between 
+the 
+morpheme-level annotation scheme and the word-
+level annotation scheme.  
+2 
+The Amahuaca language 
+The Amahuaca people are primarily concentrated 
+in some provinces of the Ucayali region, in Peru. 
+In the Atalaya province, they reside in the basins 
+of the Yurúa River (Yurúa district), Inuya and 
+Mapuya Rivers (Raymondi district), and Sepahua 
+River (Sepahua district). In the Purús province, 
+they occupy a community in the Purús River 
+basin, within the district of the same name. Some 
+settlements in the Upper Inuya and Mapuya 
+regions host Amahuaca populations in "initial 
+contact situations." For more information on 
+Amahuaca society and culture, see Dole (1998) 
+and Hewlett (2014). As mentioned before, this 
+language is endangered, with approximately 400 
+speakers, most of whom are over 40 years old, and 
+children are no longer learning it.  
+Amahuaca is a language, characterized by rich 
+morphology. While there are works that describe 
+this language (see Sparing-Chávez 2012, Clem 
+2019), we base the analysis on Valenzuela et al. 
+(in prep.), which focuses more on the behavior of 
+clitics in the language. Similar to other Panoan 
+languages (for more information about Shipibo- 
+Konibo and Kakataibo languages, see Valenzuela 
+2003, 
+Zariquiey 
+2018), 
+this 
+language 
+is 
+characterized 
+by 
+being 
+postpositional 
+and 
+predominantly agglutinative. A notable feature of 
+the language is the absence of deverbal derivation 
+and the use of auxiliaries to convert a noun into a 
+verb; consequently, some nouns may carry verbal 
+inflection markers. We will discuss this point in 
+more detail later. 
+The 
+language 
+primarily 
+follows 
+a 
+basic 
+constituent order of SOV, but this order is 
+flexible. Constructions like (1) can be found, 
+where the subject michito chaho ‘black cat’ 
+Universal Dependencies for the Amahuaca language 
+ 
+ 
+ 
+Candy Angulo  
+        Pilar Valenzuela  
+ 
+Roberto Zariquiey 
+University at Buffalo        Chapman University  
+Pontificia Universidad Católica del Perú
+
+18.pdf:
+Speech Technologies Datasets for African Under-Served Languages
+Anonymous ACL submission
+Abstract
+001
+The expansion of the speech technology sector
+002
+has given rise to a novel economic model in
+003
+language research, with the objective of devel-
+004
+oping speech datasets. This model is expanding
+005
+to under-served African languages through col-
+006
+laborative efforts between industries, organisa-
+007
+tions, and the active participation of communi-
+008
+ties. This collaboration is yielding new datasets
+009
+for machine learning, while also disclosing vul-
+010
+nerabilities and sociolinguistic discrepancies
+011
+between industrialised and non-industrialised
+012
+societies. A case study of a speech data collec-
+013
+tion camp that took place in September 2024
+014
+in Cameroon, involving representatives of 31
+015
+languages throughout the continent, illustrates
+016
+both the prospects of the new economic model
+017
+for research on under-served languages and the
+018
+challenges of fair, effective, and responsible
+019
+participation.
+020
+Introduction
+021
+There is a growing momentum in industry and
+022
+academia to develop speech technologies on a mas-
+023
+sive scale. In the industrial domain, one of the
+024
+most emblematic moves in this regard is the Mas-
+025
+sively Multilingual Speech (MMS) project initiated
+026
+by Meta (Pratap et al., 2024), which aims to ex-
+027
+tend the coverage of speech technology across the
+028
+global linguistic landscape. There are currently 336
+029
+African languages for which the MMS project has
+030
+developed automatic speech recognition (ASR) and
+031
+text-to-speech (TTS) models. MMS uses multilin-
+032
+gual datasets to pre-train wav2vec 2.0 models, and
+033
+the labelled dataset used for this pre-training con-
+034
+sists of aligned New Testament recordings. This
+035
+has enabled coverage of many of Africa’s under-
+036
+served languages, for which the Bible is often the
+037
+only substantial textual resource. At an institu-
+038
+tional level, academics and organisations are work-
+039
+ing together to build language datasets for machine
+040
+learning in African languages. This is evidenced
+041
+by initiatives such as The Lacuna fund1, which has
+042
+enabled the creation of a diverse range of language
+043
+datasets, including speech datasets in more than 20
+044
+African languages over the past three to four years
+045
+(Babirye et al., 2022).
+046
+Despite this progress, significant limitations re-
+047
+main, particularly in the dominant crowdsourced
+048
+data collection model employed by platforms such
+049
+as Mozilla Common Voice (MCV)2 (Ardila et al.,
+050
+2020). While MCV is widely recognised for en-
+051
+abling community participation in the creation of
+052
+speech datasets, several critical flaws undermine
+053
+its effectiveness for under-served languages. A sig-
+054
+nificant challenge pertains to the dearth of publicly
+055
+accessible text sources that can be collated for util-
+056
+isation as reading prompts, compelling the reliance
+057
+on religious texts such as the Bible, which are
+058
+frequently the sole non-licensed text data sources.
+059
+While the Bible may not be the predominant text
+060
+source in most of the MCV’s collecting interfaces
+061
+for African languages, the absence of text diver-
+062
+sity in under-resourced languages leads to a limited
+063
+representation of language use, significantly dif-
+064
+fering from the fluid and varied nature of daily
+065
+language usage. Additionally, the platform’s frame-
+066
+work tends to impose a single orthography model
+067
+for each language, disregarding the linguistic di-
+068
+versity and orthography multiplicity found within
+069
+many African communities. This rigid approach
+070
+has the potential to marginalise certain dialects or
+071
+writing traditions. Another challenge stems from
+072
+the dependency on literacy participation, which
+073
+excludes individuals who are fluent speakers but
+074
+not proficient readers. Finally, the incentivisation
+075
+of participation, while effective in the short term,
+076
+raises questions about the sustainability of commu-
+077
+nity engagement and the quality of collected data
+078
+over time. The speech data collection camp organ-
+079
+1https://lacunafund.org/datasets/language/
+2https://commonvoice.mozilla.org/en/about
+1
+
+24.pdf:
+AILLA-OCR: A First Textual and Structural Post-OCR Dataset for 8
+Indigenous Languages of Latin America
+Milind Agarwal, Antonios Anastasopoulos
+George Mason University
+Correspondence: magarwa@gmu.edu
+Abstract
+It is by now common knowledge in the NLP
+community that low-resource languages need
+large-scale data creation efforts and novel con-
+tributions in the form of robust algorithms that
+work in data-scarce settings. Amongst these
+languages, however, many have a large amount
+of data, ripe for NLP applications, except that
+this data exists in image-based formats. This
+includes scanned copies of extremely valuable
+dictionaries, linguistic field notes, children’s
+stories, plays, and other textual material. To
+extract the text data from these non machine-
+readable images, Optical Character Recogni-
+tion (OCR) is the most popular technique, but
+it has proven to be challenging for low-resource
+languages because of their unique properties
+(uncommon diacritics, rare words etc.) and due
+to a general lack of preserved page-structure in
+the OCR output. So, to contribute to the reduc-
+tion of these two big bottlenecks (lack of text
+data and layout quality), we release the first
+textual and structural OCR dataset for 8 indige-
+nous languages of Latin America. We hope that
+our dataset will encourage researchers within
+the NLP and Computational Linguistics com-
+munities to work with these languages.1
+1
+Introduction
+Latin America is home to a linguistically diverse
+set of hundreds of indigenous languages. Many of
+these are low-resource in terms of text and audio re-
+sources, and generally lack basic natural language
+applications such as spell checkers, part of speech
+(POS) taggers, etc. However, these languages have
+a large number of digital resources (not machine-
+readable) in the form of recordings, plays, stories,
+and dictionaries. One major repository of such ma-
+terials is the Archive of the Indigenous Languages
+of Latin America (AILLA), whose raw materials
+and digitizations form the core of the dataset in
+our paper (Agarwal and Anastasopoulos, 2024).
+1Relevant code and data are available here
+Figure 1: The AILLA-OCR corpus covers 8 indigenous
+languages spoken across 6 countries in Latin Amer-
+ica. Languages differ in terms of vitality, with only
+South Bolivian Quechua with over a million speakers
+and some official status, but most others exist as minor-
+ity languages in the respective countries (Table 1).
+Of particular interest to us are linguistic materi-
+als such as grammars, dictionaries, ethnographies,
+and field notes, that can serve as training data for
+NLP applications and Optical Character Recogni-
+tion (OCR). The goal of releasing this digitized
+and corrected dataset is to preserve invaluable lin-
+guistic materials, promote research on downstream
+tasks such as language identification and machine
+translation, and encourage better OCR techniques
+that allow for more accurate extraction of data from
+such corpora at scale (Nguyen et al., 2021; Agar-
+wal et al., 2023). Modern OCR systems specialize
+in extracting text from such documents, but this
+requires high-quality layout detection to make the
+extracted text usable for downstream NLP tasks
+(Bustamante et al., 2020; Neudecker et al., 2021).
+While progress has been made on correcting the
+OCR text outputs after extraction, no work has
+focused on automatically correcting the layouts
+themselves either before/after text post-correction
+due to lack of annotated data. We aim to address
+
+30.pdf:
+AI for Interlinearization and POS Tagging: Teaching Linguists to Fish
+Olga Kriukova1 *, Katherine Schmirler2 *, Sarah Moeller3, Olga Lovick1,
+Inge Genee2, Alexandra Smith2, Antti Arppe4
+1University of Saskatchewan, 2University of Lethbridge, 3University of Florida, 4University of Alberta
+*These authors contributed equally
+Correspondence: olga.kriukova@usask.ca
+Abstract
+This paper describes the process and learn-
+ing outcomes of a three-day workshop on ma-
+chine learning basics for documentary linguists.
+During this workshop, two groups of linguists
+working with two Indigenous languages of
+North America, Blackfoot and Dënë Su˛łıné,
+became acquainted with machine learning prin-
+ciples, explored how machine learning can be
+used in data processing for under-resourced
+languages and then applied different machine
+learning methods for automatic morphologi-
+cal interlinearization and parts-of-speech tag-
+ging. As a result, participants discovered paths
+to greater collaboration between computer sci-
+ence and documentary linguistics and reflected
+on how linguists might be enabled to apply ma-
+chine learning with less dependence on experts.
+1
+Introduction
+During this time of increased AI-assisted language
+documentation, more and more studies emphasize
+the necessity and importance of collaborative ef-
+forts between documentary and computational lin-
+guists (Gessler, 2022; Flavelle and Lachler, 2023;
+Opitz et al., 2024).
+Additionally, Gessler and
+von der Wense (2024) point out the lack of in-
+terdisciplinary educational initiatives that could
+introduce specialists from both fields to the spe-
+cific and general context of each other’s work and,
+thus, bring mutual understanding and effective col-
+laboration. In this paper, we describe our experi-
+ences hosting and participating in a “Machine-in-
+the-Loop” (MitL) workshop, held in Edmonton at
+the University of Alberta during November 14-16,
+2023, which addresses this lack. The workshop
+curriculum Moeller and Arppe (2024) aims to in-
+troduce documentary linguists to machine learning
+(ML) and natural language processing (NLP) and to
+provide Python-savvy linguists with ML skills rele-
+vant to Indigenous language research and resource
+development. The workshop focused on founda-
+tional concepts underpinning machine learning and
+its application in NLP. In practical sessions, we
+worked in two teams focusing on two Indigenous
+languages of North America, Blackfoot and Dënë
+Su˛łıné, each working toward a different project
+goal using a different machine learning model and
+NLP task. A Transformer deep learning model was
+trained to perform automatic interlinear morpho-
+logical glossing of Blackfoot texts. A Conditional
+Random Fields (CRF) model was used to build a
+parts-of-speech (POS) tagger for Dënë Su˛łıné.
+The paper does not provide any ground-breaking
+solutions for computational linguistics but rather
+describes how already-established techniques can
+facilitate linguists’ work with truly under-resourced
+languages.
+Notably, the workshop outcomes
+demonstrate that gaining awareness and a basic
+understanding of foundational ML concepts, com-
+bined with basic programming skills, enables lin-
+guists themselves to use NLP for the study and
+annotation of endangered languages.
+This paper advocates for active collaboration be-
+tween documentary and computational linguists in
+a way that enables documentary linguists to auto-
+mate their own work efficiently, thereby reducing
+reliance on NLP experts to advance language tech-
+nology for Indigenous communities. We feel that
+such a collaboration does not happen very often
+because linguists and computer scientists both as-
+sume it takes years of education before one can
+practically apply machine learning. This, com-
+bined with a below-average interdisciplinary di-
+mension in NLP (Wahle et al., 2023), means many
+attempts at collaboration become inefficient inter-
+actions that seem more like data extraction to lin-
+guists (Flavelle and Lachler, 2023). This not only
+raises concerns about data security and sovereignty
+but also excludes the linguists’ and language com-
+munities’ perspectives from the NLP development.
+We believe that an approach where collaborators do
+not assume the technicalities are beyond linguists’
+1
+
+27.pdf:
+Connecting Automated Speech Recognition to Transcription Practices
+Blaine Billings
+University of Hawai‘i at M¯anoa
+blainetb@hawaii.edu
+Bradley McDonnell
+University of Hawai‘i at M¯anoa
+mcdonn@hawaii.edu
+Johan Safri
+Wawan Sahrozi
+Abstract
+One of the greatest issues facing documentary
+linguists is the transcription bottleneck. While
+the large quantity of audio and video data gener-
+ated as part of a documentary project serves as
+a long-lasting record of the language, without
+corresponding text transcriptions, it remains
+largely inaccessible for revitalization efforts
+and linguistic analysis.
+Automated Speech
+Recognition (ASR) is frequently proposed as
+the solution to this problem. However, two is-
+sues often prevent documentary linguists from
+making use of ASR models: 1) the thought that
+the typical documentary project does not have
+sufficient data to develop an adequate ASR
+model and 2) that correcting the output of an
+ASR model would be more time-consuming for
+transcribers than simply creating a transcription
+from scratch. In this paper, we tackle both of
+these issues by developing an ASR model in
+the larger context of a documentation project
+for Nasal, a low-resource language of western
+Indonesia. Fine-tuning a larger pre-trained lan-
+guage model on 25 hours of transcribed Nasal
+speech, we produce a model that has a 44%
+word error rate. Despite this relatively high
+error rate, tests comparing speed of transcrib-
+ing from scratch and correcting ASR-generated
+transcripts show that the ASR model can sig-
+nificantly speed up the transcription process.
+1
+Introduction
+The use of Automated Speech Recognition (ASR)
+in language documentation and revitalization con-
+texts has been met with almost universal enthusi-
+asm due to its promise to loosen the transcription
+bottleneck (see e.g. Berez-Kroeker et al., 2023).
+The basic idea behind this approach is that while
+the limited data of low resource languages is often
+not able to produce highly accurate models com-
+parable with those of high resource languages, it
+is more efficient to correct the output of an ASR
+model than to produce a transcription from scratch
+(see Foley et al., 2018; Bird, 2021). This approach
+crucially relies on an ASR model to generate tran-
+scriptions accurate enough that making corrections
+requires less time and effort than creating a tran-
+scription anew. More recently, there is a grow-
+ing number of ASR studies that demonstrate how
+the accuracy of models with relatively little train-
+ing data are able to be improved through the use
+of pre-trained models of high resource languages
+(Coto-Solano et al., 2022) or supplemental writ-
+ten corpora in the target language (Bartelds et al.,
+2023; San et al., 2023). Despite improvements to
+ASR models in language documentation and re-
+vitalization projects, it remains difficult to assess
+the usefulness of such models as there has been
+very little reported about how transcribers, who are
+often native speakers and members of the speech
+community, interact with the outputs of these ASR
+models.
+In this paper, we address this issue through a case
+study of Nasal, an endangered, under-resourced
+Austronesian language of Sumatra, Indonesia. The
+study comprises two parts. The first discusses the
+development of an ASR model for Nasal through
+the fine-tuning of a pre-trained high-resource lan-
+guage model using Whisper (Whisper 2024). The
+second addresses the usefulness of such a model
+for Nasal transcribers by comparing the process of
+transcribing in ELAN from scratch against correct-
+ing transcriptions generated by the ASR model.
+This paper is organized as follows. The remain-
+der of this section provides an introduction to the
+Nasal speech community (§1.1) and the ongoing
+Nasal documentation project (§1.2). §2 describes
+the development of the ASR model for Nasal. §3
+discusses the results from the model and the com-
+parison between the two transcription methods. §4
+provides some discussion on the viability of ASR
+models for documentation projects, and §5 gives
+some summary remarks.
+
+40.pdf:
+Kuene: A Web Platform for Facilitating Hawaiian Word Neologism
+Anonymous ACL submission
+Abstract
+This paper presents Kuene, a web-based collab-
+001
+orative dictionary editing platform designed to
+002
+facilitate the creation and publication of Hawai-
+003
+ian neologisms by the Hawaiian Lexicon Com-
+004
+mittee. Through Kuene, the Committee can
+005
+create, edit, and refine new dictionary entries
+006
+with a multi-round approval process, ensuring
+007
+accuracy and consistency. The platform’s tech-
+008
+nical features enable flexible access control,
+009
+fine-grained approval states, and support for
+010
+multimedia content and AI-assisted orthogra-
+011
+phy modernization. Just in the past two months,
+012
+Kuene has enabled the publication of over 400
+013
+new Hawaiian words. By streamlining the dic-
+014
+tionary editing process, Kuene aims to alleviate
+015
+the scarcity of modern Hawaiian words and fa-
+016
+cilitate the revitalization efforts of the Hawaiian
+017
+language.
+018
+1
+Introduction
+019
+Hawaiian is a critically endangered language in
+020
+the Austronesian language family, spoken in the
+021
+state of Hawaii, USA. Through most of the 1900s,
+022
+Hawaiian was banned in schools, leading to a sharp
+023
+decline in usage and a generation with nearly no
+024
+native speakers. Only in the past 40 years have
+025
+there been active efforts to revitalize the language
+026
+through educational initiatives such as immersion
+027
+schools, leading to a resurgence of usage. One of
+028
+the many hindrances to the active use of Hawaiian
+029
+in daily life today is the lack of words for many
+030
+modern concepts. To remedy this issue, the Hawai-
+031
+ian Lexicon Committee, Kōmike Hua‘ōlelo, was
+032
+formed in 1987 for the purpose of creating new
+033
+words in the language. The Committee is composed
+034
+of native Hawaiian speakers who meet regularly to
+035
+discuss and create new words. As a result of their
+036
+meetings, the Committee has published Māmaka
+037
+Kaiao (Kōmike Hua‘ōlelo, 2003), a dictionary of
+038
+modern Hawaiian words, which has been updated
+039
+several times since. This dictionary, along with oth-
+040
+ers (Pukui et al., 1976; Andrews, 1865; Pukui and
+041
+Elbert, 1986), have been instrumental for students
+042
+and learners of Hawaiian. However, due to several
+043
+factors including the COVID pandemic, the Com-
+044
+mittee has not met in several years, and progress
+045
+on updating Māmaka Kaiao with new words has
+046
+stalled until very recently.
+047
+In this paper, we present Kuene, an online col-
+048
+laborative dictionary editing and publishing plat-
+049
+form that facilitates the process of creating and pub-
+050
+lishing neologisms by the Hawaiian Lexicon Com-
+051
+mittee. Using Kuene, the Committee can propose
+052
+new words and definitions. Then, other Committee
+053
+members can review proposed entries, making edits
+054
+as needed. Several rounds of approvals by differ-
+055
+ent members can be completed through Kuene to
+056
+ensure the accuracy of the new words, their trans-
+057
+lations, parts of speech, example usages, and other
+058
+information associated with the new entry. After a
+059
+final editorial review, a word can be seamlessly pub-
+060
+lished using a one-click export to a public Hawaiian
+061
+dictionary website.
+062
+Kuene sports several technical features that fa-
+063
+cilitate the neologism process. User accounts with
+064
+different permissions can limit access to users with
+065
+different roles, e.g. one member responsible for cre-
+066
+ating the dictionary entry, or an editor responsible
+067
+for proofreading for typos. An entry’s headword
+068
+and definition can have different approval states,
+069
+allowing for finer distribution of effort when ap-
+070
+proving a new entry, particularly for headwords that
+071
+have previously approved definitions. Users may
+072
+also post internal comments for in-context asyn-
+073
+chronous discussion about entries. Kuene takes
+074
+advantage of the web-based medium to support em-
+075
+bedding of media such as photos, audio, video, and
+076
+taxonomic tagging to further add context to dic-
+077
+tionary entries, enhancing comprehension for new
+078
+and multimodal learners of Hawaiian. Furthermore,
+079
+Kuene supports efficient checking for duplicate en-
+080
+tries and existing related entries and integration
+081
+1
+
+6.pdf:
+Citizen-linguists and Decolonial Lexicography: Co-creative 
+Dictionary-building in Grassroots Digital Language Documentation 
+ 
+Anna Luisa Daigneault#/^ & Gregory D. S. Anderson^ 
+#Université de Montréal & ^Living Tongues Institute for Endangered Languages 
+annaluisa@livingtongues.org,  gdsa@livingtongues.org 
+ 
+ 
+ 
+ABSTRACT 
+ 
+Many endangered, under-represented, minority and 
+Indigenous language communities around the 
+world need access to multilingual online resources 
+to survive in the digital age. The Living 
+Dictionaries platform provides a collaborative 
+online space for professional linguists and citizen-
+linguists alike to produce their own grassroots 
+digital dictionaries that include multimedia such as 
+audio recordings and images. These online lexica 
+can play an important role in assisting present and 
+future generations in combatting language loss and 
+creating visibility for their languages and cultures 
+on the Internet. 
+ 
+1 Introduction 
+While state-run language programs 
+often serve as vectors of total assimilation to 
+dominant languages and the abandonment of 
+heritage ones (Skutnabb-Kangas, 2000; 2023), 
+grassroots digital projects can serve as a 
+counterbalance and bring visibility to lesser-
+known languages. Access to high-quality 
+digital resources is essential for language 
+communities in the modern age, as 
+information is increasingly consumed and 
+disseminated digitally, specifically through 
+mobile platforms. Assisting communities in 
+developing such accessible resources is a 
+tangible contribution by linguists in response 
+to the colonialist underpinnings of linguistics. 
+Relying on institutional actors – state, 
+academic, juridical – to act in the interests of 
+linguistic minority communities and to enforce 
+linguistic human rights (not just on paper) has 
+proven to be largely ineffective to date, except 
+in very few contexts where governments have 
+successfully helped revitalize languages that 
+are typically the sole or main minority 
+Indigenous language of the nation (e.g., in 
+Wales, Ireland, New Zealand).  
+ 
+ 
+ 
+Figure 1: The Living Dictionary for Olùkùmi [ISO 639-3 code: ulb], an endangered Niger-Congo language of 
+Nigeria, with glosses in English and some in Yoruba. It contains 1,553 entries tagged with semantic domains 
+and parts of speech and includes multimedia. It was built by Dr. Bolanle Orokoyo (University of Ilorin) in close 
+collaboration with scholars at Living Tongues Institute for Endangered Languages between 2012 and 2024. 
+https://livingdictionaries.app/olukumi/entries
+
+7.pdf:
+Supporting SEN ´COTEN Language Documentation Efforts
+with Automatic Speech Recognition
+Mengzhe Geng1∗Patrick Littell1 Aidan Pine1 PENÁ´C2 Marc Tessier1 Roland Kuhn1
+1National Research Council Canada, Ottawa, ON, Canada
+first.last@nrc-cnrc.gc.ca
+2W¯ SÁNE ´C School Board, Brentwood Bay, BC, Canada
+Abstract
+The SEN ´COTEN language, spoken on the
+Saanich peninsula of southern Vancouver Is-
+land, is in the midst of vigorous language re-
+vitalization efforts to turn the tide of language
+loss as a result of colonial language policies. To
+support these on-the-ground efforts, the com-
+munity is turning to digital technology. Auto-
+matic Speech Recognition (ASR) technology
+holds great promise for accelerating language
+documentation and the creation of educational
+resources. However, developing ASR systems
+for SEN ´COTEN is challenging due to limited
+data and significant vocabulary variation from
+its polysynthetic structure and stress-driven
+metathesis. To address these challenges, we
+propose an ASR-driven documentation pipeline
+that leverages augmented speech data from a
+text-to-speech (TTS) system and cross-lingual
+transfer learning with Speech Foundation Mod-
+els (SFMs). An n-gram language model is also
+incorporated via shallow fusion or n-best restor-
+ing to maximize the use of available data. Ex-
+periments on the SEN ´COTEN dataset show a
+word error rate (WER) of 19.34% and a char-
+acter error rate (CER) of 5.09% on the test
+set with a 57.02% out-of-vocabulary (OOV)
+rate. After filtering minor cedilla-related errors,
+WER improves to 14.32% (26.48% on unseen
+words) and CER to 3.45%, demonstrating the
+potential of our ASR-driven pipeline to support
+SEN ´COTEN language documentation.
+1
+Introduction
+Language documentation often plays an important
+role in the revitalization of Indigenous languages.
+Language revitalization is, in turn, crucially impor-
+tant for preserving the cultural heritage and iden-
+tity of Indigenous communities. SEN ´COTEN (str),
+the language of the W¯ SÁNE ´C people, has faced
+considerable challenges, largely due to the cumu-
+∗Corresponding author.
+lative effects of historical marginalization and cul-
+tural suppression (Haque and Patrick, 2015; Pine
+and Turin, 2017). With a sharp reduction in fluent
+speakers, many Indigenous languages in Canada,
+including SEN ´COTEN, are at a critical juncture.
+Of the approximately 70 Indigenous languages in
+Canada, many urgently require revitalization ef-
+forts to prevent further loss (Littell et al., 2018). In
+this context, Automatic Speech Recognition (ASR)
+technology offers significant potential for language
+revitalization by supporting the transcription of spo-
+ken language, thereby potentially accelerating the
+development of educational curriculum developed
+from audio data (Jimerson and Prud’hommeaux,
+2018; Foley et al., 2018; Littell et al., 2018; Gupta
+and Boulianne, 2020a,b; Liu et al., 2022; Rodríguez
+and Cox, 2023). While ASR technologies have
+made significant strides for widely spoken lan-
+guages (Peddinti et al., 2015; Chan et al., 2016;
+Wang et al., 2020; Gulati et al., 2020; Hu et al.,
+2022; Li et al., 2023), research on ASR systems for
+Canadian Indigenous languages (Gupta and Bou-
+lianne, 2020a,b) remains limited.
+SEN ´COTEN, also known as the Saanich lan-
+guage, is spoken around the Saanich penin-
+sula in the southern region of Vancouver Is-
+land and on neighboring islands in the Strait of
+Georgia.
+The language is written with a dis-
+tinct alphabet developed by the late Dave Elliott
+Sr. (FirstVoices, 2024). As of 2022, there are a
+reported 16 fluent SEN ´COTEN speakers and 165
+semi-speakers (Gessner et al., 2022). While on-
+going and vigorous revitalization efforts (Brand
+et al., 2002; Jim, 2016; Bird and Kell, 2017; Bird,
+2020; Elliott Sr, 2024; Pine et al., 2025) are in
+place, there have been no prior efforts to leverage
+ASR techniques to support the documentation and
+revitalization of SEN ´COTEN.
+This paper aims to address the gap by inves-
+tigating cutting-edge ASR-based techniques that
+can support SEN ´COTEN language documentation
+
+41.pdf:
+Evaluation of Morphological Segmentation Methods for Hupa
+Nathaniel Parkes
+Department of Linguistics
+University of Florida
+n.parkes@ufl.edu
+Zoey Liu
+Department of Linguistics
+University of Florida
+liu.ying@ufl.edu
+Abstract
+Building downstream NLP applications with
+tokenization systems built on morphological
+segmentation has been shown to be fruitful for
+certain morphologically-rich languages. Yet,
+indigenous and endangered languages, which
+tend to be highly polysynthetic, thereby a po-
+tential beneficiary of this approach, pose ad-
+ditional difficulties in their limited access to
+annotated data for morphological segmenta-
+tion tasks.
+In this study, we develop mor-
+phological segmentation models for Hupa, a
+Dene/Athabaskan language critically endan-
+gered to North America. With a total of 595
+word types, we seek to identify an optimal mor-
+phological segmentation model and illustrate
+how those tested perform under different levels
+of training data limitation. We propose a simple
+method that casts morphological segmentation
+as a sequence binary classification task. While
+this approach does not outperform the estab-
+lished practice of multi-class classification, it
+outperforms neural alternatives. This work is
+conducted under the intention to act as a start-
+ing point for future technological developments
+with Hupa looking to leverage its morpholog-
+ical qualities, which we hope can serve as a
+reflection for work with other indigenous lan-
+guages being studied under similar constraints.
+1
+Introduction
+The Hupa people of the Hoopa Valley Reservation
+in Humboldt county California, are a federally rec-
+ognized indigenous group within the United States
+with over 3,000 documented descendants (Ency-
+clopaedia Britannica, 2024). Despite resistance to
+polices or attempts at cultural erasure impended
+by the American Government, the Hupa tribe has
+shown signs of gradual increase in American influ-
+ence, noted in reports dating back to the mid-20th
+century (Bushnell, 1968). Today, many aspects
+of their culture and tradition are upheld, but mod-
+ern descendants are exhibiting a declining trend
+in language retention with English taking over as
+the primary language (Spence, 2021). Efforts are
+being made to revitalize this piece of their culture,
+but relevant language data is limited and the Hupa
+language, of the Dene/Athabaskan language fam-
+ily, is currently recognized under endangered status
+(Campbell and Grondona, 2008).
+With support from community members and lin-
+guists with advanced knowledge on the language,
+recent work has started to leverage computational
+techniques to facilitate documentation of Hupa
+and creation of pedagogical materials for language
+teaching. However, said research has only focused
+on automatic speech recognition (Venkateswaran
+and Liu, 2024). In this paper, we intend to con-
+tribute to such efforts, focusing specifically on mor-
+phological segmentation for Hupa. The goal of
+morphological segmentation is to automatically
+segment a word into its individual component mor-
+phemes (e.g., lemons →lemon + s).
+Like many other native American languages,
+Hupa has highly complex, yet productive polysyn-
+thetic morphology (Goddard, 1902-1907). As a
+result, the process of segmenting words into their
+morphological components in Hupa is likewise a
+difficult process when completed manually by sea-
+soned linguists. Building computational models
+to segment words into sub-words, or morphemes,
+can be advantageous for such morpheme-rich sys-
+tems. Furthermore, this can have major implica-
+tions in the automation of language documentation
+processes (see also Zevallos and Bel (2023)).
+With that in mind, this study makes two con-
+tributions. First, we evaluate the performance of
+four different model alternatives for morphologi-
+cal segmentation for Hupa; we purposefully cre-
+ate experimental settings with varying degrees of
+data limitations in order to probe the robustness of
+these models when faced with severely resource-
+constrained contexts. Second, we propose a simple
+augmentation to the sequence-tagging approach
+
+5.pdf:
+Bilingual Sentence Mining for Low-Resource Languages: a Case Study on
+Upper and Lower Sorbian
+Shu Okabe1,2 and Alexander Fraser1,2,3
+1School of Computation, Information and Technology
+Technische Universität München (TUM)
+2Munich Center for Machine Learning
+3Munich Data Science Institute
+shu.okabe@tum.de,
+alexander.fraser@tum.de
+Abstract
+Parallel sentence mining is crucial for down-
+stream tasks such as Machine Translation, espe-
+cially for low-resource languages, where such
+resources are scarce. In this context, we apply a
+pipeline approach with contextual embeddings
+on two endangered Slavic languages spoken in
+Germany, Upper and Lower Sorbian, to eval-
+uate mining quality. To this end, we compare
+off-the-shelf multilingual language models and
+word encoders pre-trained on Upper Sorbian
+to understand their impact on sentence mining.
+Moreover, to filter out irrelevant pairs, we ex-
+periment with a post-processing of mined sen-
+tences through an unsupervised word aligner
+based on word embeddings. We observe the
+usefulness of additional pre-training in Upper
+Sorbian, which leads to direct improvements
+when mining the same language but also its
+related language, Lower Sorbian.
+1
+Introduction
+Machine Translation (MT) essentially relies on par-
+allel corpora, which are widely available for ‘win-
+ner’ languages (Joshi et al., 2020). Yet, when it
+comes to lower-resourced languages, they become
+rarer, and such resources are more costly to obtain
+compared to monolingual corpora. This is why, to
+circumvent situations with too few or even no par-
+allel sentences, parallel sentence mining is a task
+to find parallel sentences automatically in monolin-
+gual corpora. Research on parallel sentence mining
+is intertwined with MT since improving mining
+quality often leads to a better translation model.
+The BUCC Shared Tasks (Zweigenbaum et al.,
+2017; Pierre Zweigenbaum and Rapp, 2018) no-
+tably focus on parallel sentence mining and acts as
+a benchmark. However, only four well-resourced
+language pairs are represented there. Hence, we try
+to fill this gap by evaluating sentence mining for
+low-resource languages.
+In this work, we consider Upper Sorbian and
+Lower Sorbian, paired with German, which can
+be seen as a case study for low-resource sentence
+mining. We can effectively observe two data con-
+ditions (the former has more data than the latter)
+and also the impact of relatedness between the two
+languages.
+We will try to answer the following questions:
+How well can we mine parallel sentences for a
+language with off-the-shelf word encoders? How
+useful is it to pre-train a model with the available
+monolingual data? How helpful is it to pre-train a
+model on a related language?
+We consider two scenarios: (i) when computing
+resources are limited, we use already pre-trained
+models; (ii) otherwise, we fine-tune a language
+model on the available monolingual corpus in the
+low-resource language.
+As such, we aim to foster further research on
+bilingual mining for low-resource languages and
+its challenges. We hope that this study provides im-
+portant lessons useful even in a more data-restricted
+scenario.
+To this end, we propose (a) two BUCC-style
+mining corpora, (b) a comparison of two state-of-
+the-art language models in mining Sorbian-German
+parallel sentences, (c) word encoders with different
+amounts of pre-training sentences in Upper Sor-
+bian, and (d) an alignment post-processing to im-
+prove the mining quality. Thus, our work can serve
+as a benchmark for two low-resource languages in
+a realistic scenario. We release the corpora, the
+mining pipeline, and all related code material1.
+Section 2 will focus on the two languages and the
+creation of the corpora, while Section 3 compares
+the considered language models, the pre-training
+strategy and explains the mining method. Section 4
+presents and analyses the mining results.
+1At https://github.com/shuokabe/PaSeMiLL.
+
+3.pdf:
+Abstract 
+This paper presents a set of linguistic 
+resources 
+that 
+formalizes 
+the 
+morphological behavior of simple Rromani 
+adjectives. We describe the formalization of 
+the adjectives’ morphology and the 
+implementation with the NooJ linguistic 
+platform of an electronic dictionary 
+associated with a formal morpho-syntactic 
+grammar. We can then apply this set of 
+resources to a corpus to evaluate the 
+resources and automatically annotate 
+adjectival forms in Rromani texts. The final 
+set of resources can then be used to identify 
+each Rromani dialectal variant and can be 
+used as a pedagogical tool to teach Rromani 
+as a second language. 
+1 
+Introduction 
+1.1 
+Rromani language 
+Rromani is the language of the Rromani people; it 
+is an Indo-Aryan language. The number of 
+Rromani speakers is estimated at 5.5 million 
+(Gurbetovski, M. et al. 2010). UNESCO’s “Atlas 
+of the World’s Languages in Danger” classifies 
+Rromani as a “definitely endangered1” language 
+(UNESCO. 2010). There are four Rromani 
+dialects, formed by two isoglosses combining 
+with each other (Courthiade, M. 2016): 
+• The first isoglossal criterion concerns the 
+opposition between “o” and “e,” e.g., 
+phirdom vs. phirdem [I walked], o Rroma vs. 
+e Rroma [the Rroms]. 
+• The second isoglossal criterion concerns the 
+phonetic mutation of two consonants: the 
+alveolar affricates “ʧʰ” and “ʤ” transform 
+ 
+1 The UNESCO list has six categories of danger: Stable yet 
+threatened, vulnerable, definitely endangered, severely 
+endangered, critically endangered, extinct. 
+into alveolar-palatal fricatives [ɕ] and [ʑ], 
+e.g., “ʧʰavo” vs. “ɕavo” [Rromani boy, son], 
+“ʤukel” vs. “ʑukel” [dog]. 
+These four dialects are not areal: Rromani speakers 
+living in nearby regions do not necessarily speak 
+the same dialects, and the same dialect is used in 
+distant countries. 
+The Rromani alphabet was standardized at the 
+International Rromani Union Congress in 1990, see 
+Figure 1. 
+ 
+ 
+Figure 1: The Rromani standardized alphabet 
+ 
+If all Rromani speakers transcribe, for example, 
+the word ćhib [language] using their local 
+alphabets, there can be up to 60 different spellings. 
+The written word ćhib is an underlying form 
+including four possible pronunciations: [ʧʰb], [ʧʰp], 
+[ɕib], and [ɕip], see Figure 2. The standardized 
+alphabet enables speakers of different dialects to 
+understand each other in writing, giving them 
+comfort in pronunciation. 
+No other standardization exists: neither lexical, 
+nor grammatical, nor phonetic. 
+Formalizing the Morphology of Rromani Adjectives 
+ 
+ 
+ 
+Masako Watabe, University of Franche-Comté, CRIT, UFR SLHS,  
+30-32 rue Mégevand, F-25000 Besançon, France, masako.watabe@univ-fcomte.fr 
+Max Silberztein, University of Franche-Comté, CRIT, UFR SLHS,  
+30-32 rue Mégevand, F-25000 Besançon, France, max.silberztein@univ-fcomte.fr
+

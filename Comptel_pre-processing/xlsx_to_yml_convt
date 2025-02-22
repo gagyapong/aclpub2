@@ -1,0 +1,39 @@
+import pandas as pd
+import yaml
+
+#file paths
+csv_file = "Comptel_pre-processing/PC_ComputEL-8_data_2025-02-22.csv"
+yaml_output = "Comptel_pre-processing/pc.yml"  # Change to your desired output path
+
+
+df = pd.read_csv(csv_file)
+df.columns = df.columns.str.lower().str.strip()
+
+# Ensure correct column mapping
+expected_columns = ["first name", "last name", "affiliation"]  
+missing_columns = [col for col in expected_columns if col not in df.columns]
+
+if missing_columns:
+    raise ValueError(f"Missing columns in CSV: {missing_columns}")
+
+# Extract data
+entries = []
+for _, row in df.iterrows():
+    entry = {
+        "first_name": row["first name"],
+        "last_name": row["last name"],
+        "institution": row["affiliation"]  
+    }
+    entries.append(entry)
+
+# Create YAML structure
+yaml_data = {
+    "entries": entries,
+    "role": "Program Committee"  # Modify as needed
+}
+
+# Save to a YAML file
+with open(yaml_output, "w", encoding="utf-8") as file:
+    yaml.dump(yaml_data, file, allow_unicode=True, default_flow_style=False)
+
+print(f"✅ YML file successfully created: {yaml_output}")

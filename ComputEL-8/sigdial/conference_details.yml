@@ -1,0 +1,26 @@
+book_title: Proceedings of the Eight Workshop on the Use of Computational Methods in the Study of Endangered Languages
+event_name: Eight Workshop on the Use of Computational Methods in the Study of Endangered Languages
+volume_name: main
+cover_subtitle: Proceedings of the Workshop
+anthology_venue_id: ComputEL
+start_date: 2025-03-04
+end_date: 2025-03-05
+isbn: None
+location: Honolulu, Hawaii, USA
+editors:
+  - first_name: Jordan
+    last_name: Lachler
+  - first_name: Godfred
+    last_name: Agyapong
+  - first_name: Antti
+    last_name: Arppe
+  - first_name: Sarah
+    last_name: Moeller
+  - first_name: Aditi
+    last_name: Chaudhary
+  - first_name: Shruti
+    last_name: Rijhwani
+  - first_name: Daisy
+    last_name: Rosenblum
+publisher: Association for Computational Linguistics
+#watermark_book_title: Proceedings of the Eight Workshop on the Use of Computational Methods in the Study of Endangered Languages

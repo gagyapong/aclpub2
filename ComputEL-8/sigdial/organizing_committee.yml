@@ -1,0 +1,27 @@
+-members:
+  - first_name: Jordan
+    institution: University of Alberta
+    last_name: Lachler
+  role: General Chair
+-members:
+  - first_name: Godfred
+    institution: University of Florida
+    last_name: Agyapong
+  role: Deputy General Chair
+-members:
+  - first_name: Antti
+    institution: University of Alberta
+    last_name: Arppe
+  - first_name: Aditi
+    institution: Google Research
+    last_name: Chaudhary
+  - first_name: Sarah
+    institution: University of Florida
+    last_name: Moeller
+  - first_name: Shruti
+    institution: Birla Institute of Technology and Science, Pilani
+    last_name: Rijhwani
+  - first_name: Daisy
+    institution: University of British Columbia
+    last_name: Rosenblum
+  role: Program Chair

@@ -1,0 +1,153 @@
+id,paper_type,title,authors,keywords,presentation_type,abstract
+3,long,Formalizing the Morphology of Rromani Adjectives,Masako Watabe and Max Silberztein,"Computational Linguistics
+Computational Morphology
+Corpus Linguistics
+Linguistics
+Morphology
+Natural Language Processing
+Rromani Adjectives
+Rromani Language",poster,
+4,abstract,From Data Collection to Usable Corpus: The Development of the isiZulu National Corpus,Njabulo Hadebe and Khumbulani Mngadi,"IsiZulu
+Corpus
+SpellChecker",poster,
+5,long,Bilingual Sentence Mining for Low-Resource Languages: a Case Study on Upper and Lower Sorbian,Shu Okabe and Alexander Fraser,"sentence mining
+low-resource languages
+parallel corpora
+multilingual embeddings",oral,
+6,short,Citizen linguists and decolonial lexicography: Co-creative dictionary-building in grassroots digital language documentation,Anna Luisa Daigneault and Gregory Anderson,"endangered languages
+digital lexicography
+citizen-linguist
+linguistics
+decolonization",oral,
+7,long,Supporting SENĆOŦEN Language Documentation Efforts with Automatic Speech Recognition,"Mengzhe Geng, Patrick Littell, Aidan Pine, Penáć, Marc Tessier and Roland Kuhn","Language documentation
+Automatic speech recognition
+Speech foundation model
+Cross-lingual transfer learning
+Text-to-speech synthesis
+Data augmentation
+SENĆOŦEN language
+Polysynthetic languages",oral,
+9,long,Speech Technologies with Fieldwork Recordings: the Case of Haitian Creole,"William N. Havard, Renauld Govain, Benjamin Lecouteux and Emmanuel Schang","self-supervised models of speech
+fieldwork recordings
+under-resourced languages",oral,
+10,long,Evaluating Indigenous language speech synthesis for education: A participatory design workshop on Ojibwe text-to-speech,Viann Sum Yat Chan and Christopher Hammerly,"speech synthesis
+participatory design
+Ojibwe
+Text-to-speech
+indigenous languages
+evaluation
+educational technology",oral,
+11,long,Zero-Shot Query Generation for Approximate Search Algorithm Evaluation,"Aidan Pine, David Huggins-Daines, Carmen Leeming, Patrick Littell, Timothy Montler, Heather Souter and Mark Turin","Indigenous languages
+language revitalization
+lexicography
+search algorithms
+fuzzy search
+approximate search
+information retrieval",oral,"Approximate search is a valuable component of online dictionaries for learners, allowing them to find words even when they have not fully mastered the orthography or cannot reliably perceive phonemic differences in the language. However, evaluating the performance of different approximate search algorithms remains difficult in the absence of real user queries. We detail several methods for generating synthetic queries representing various user personas. We then compare the performance of several search algorithms on both real and synthetic queries in two Indigenous languages, SENĆOŦEN and Michif, that are phonologically and morphologically very different from English."
+12,abstract,User-friendly technology distribution and the language technology development pipeline,Lorena Martin Rodriguez and Christopher Cox,"language technology
+user-friendly
+accessibility
+language documentation
+language revitalization",oral,
+16,abstract,Importing complete interlinear glossed texts into SIL FLEx,"Aleksandr Riaposov, Alexandre Arkhipov and Elena Lazarenko","interlinear glossed texts
+import
+interoperability
+SIL Toolbox
+SIL FLEx
+ELAN",poster,
+17,short,Exploring Limitations and Risks of LLM-Based Grammatical Error Correction for Indigenous Languages,Flammie A Pirinen and Linda Wiechetek,"grammatical error correction
+indigenous languages
+llm
+rule-based",oral,
+18,long,Speech Technologies Datasets for African Under-Served Languages,"Emmanuel Ngue Um, Francis Tyers, Eliette-Caroline Emilie Ngo Tjomb, Florus Landry Dibengue, Blaise-Mathieu Banoum Manguele, Blaise Abbo Djoulde, Mathilde Nyambe A, Brice Martial Atangana Eloundou, Jeff Sterling Ngami Kamagoua, José Mpouda Avom, Zacharie Nyobe, Emmanuel Giovanni Eloundou Eyenga and André Likwai","speech technologies
+under-served languages
+crowdsourcing
+sustainability
+equity",oral,"The expansion of the speech technology sector has given rise to a novel economic model in language research, with the objective of developing speech datasets. This model is expanding to under-served African languages through collaborative efforts between industries, organisations, and the active participation of communities. This collaboration is yielding new datasets for machine learning, while also disclosing vulnerabilities and sociolinguistic discrepancies between industrialised and non-industrialised societies. A case study of a speech data collection camp that took place in September 2024 in Cameroon, involving representatives of 31 languages throughout the continent, illustrates both the prospects of the new economic model for research on under-served languages and the challenges of fair, effective, and responsible participation."
+20,abstract,Building culturally relevant multimedia resources for Indigenous languages using AI tools and collaborative development,"Chatgpt C-Lara-Instance, Belinda Chiera, Anne-Laure Dotte, Stéphanie Geneix-Rabault, Christèle Maizonniaux, Sophie Rendina, Manny Rayner, Fabrice Wacalie and Pauline Welby","AI
+multimodality
+images
+community",oral,
+21,long,Towards a Hän morphological transducer,"Maura O'Leary, Joseph Lukner, Finn Verdonk, Willem de Reuse and Jonathan Washington","morphological transducers
+Hän language
+Athabaskan languages
+Na Dene languages
+non-suffixational morphology
+marginalised languages
+lexd",oral,
+22,long,Multilingual MFA: Forced Alignment on Low-Resource Related Languages,Alessio Tosolini and Claire Bowern,"phonetics
+forced alignment
+Australian languages
+multilingual phonetic datasets",oral,
+23,long,Creating an intelligent dictionary of Tsuut’ina one verb at a time,"Christopher Cox, Bruce Starlight, Janelle Crane-Starlight, Hanna Big Crow and Antti Arppe","collaboration
+community-university partnership
+lexicography
+finite-state morphology
+Dene languages",oral,
+24,short,AILLA-OCR: A First Textual and Structural Post-OCR Dataset for 8 Indigenous Languages of Latin America,Milind Agarwal and Antonios Anastasopoulos,"low-resource
+indigenous languages
+resource creation
+digitization effort
+optical character recognition",poster,
+27,short,Connecting Automated Speech Recognition to Transcription Practices,Blaine Billings and Bradley McDonnell,"Automated speech recognition
+Documentary linguistics
+Transcription bottleneck",oral,
+28,short,Developing a Mixed-Methods Pipeline for Community-Oriented Digitization of Kwak'wala Legacy Texts,"Milind Agarwal, Antonios Anastasopoulos and Daisy Rosenblum","indigenous languages
+optical character recognition
+resource creation
+digitization",oral,
+29,abstract,Adaptability of NLP Annotation Tools for Linguistics,"Changbing Yang, Patricia Anderson, Godfred Agyapong and Sarah Moeller","Annotation tools
+Linguistic Documentation
+Annotation Software",poster,
+30,long,AI for Interlinearization and POS-tagging: Teaching Linguists to Fish,"Olga Kriukova, Katherine Schmirler, Sarah Moeller, Olga Lovick, Inge Genee, Antti Arppe and Alexandra Smith","Blackfoot
+Dënë Sųłiné
+machine learning
+interlinearization
+pos-tagging
+workshop",oral,
+31,short,Universal Dependencies for Amahuaca,"Candy Angulo, Pilar Valenzuela and Roberto Zariquiey","treebank
+amazonian language
+morph-level annotation
+low-resource language",poster,
+33,long,"Ihquin tlahtouah in Tetelancingocah: An annotated, multi-purpose audio and text corpus of Western Sierra Puebla Nahuatl","Robert Pugh, Cheyenne Wing, María Ximena Juarez Huerta, Ángeles Márquez Hernández and Francis M. Tyers","Nahuatl
+Corpus Linguistics
+endangered languages
+indigenous language NLP
+Western Sierra Puebla Nahuatl
+Automatic Speech Recognition
+Spelling Normalization
+Code-switching",oral,
+34,abstract,Developing a toolkit for community-led language documentation and reclamation in Akuzipik,Benjamin Hunt,"Akuzipik
+St. Lawrence Island Yupik
+reclamation
+community-led
+language documentation
+digital tools",poster,
+35,short,Data augmentation for low-resource bilingual ASR from Tira linguistic elicitation using Whisper,Mark Simmons,"multilingual-asr
+low-resource-asr
+whisper
+codeswitching
+language-documentation",oral,"This paper explores finetuning Whisper for transcribing audio from linguistic elicitation of Tira, a Heiban language of Sudan.
+Audio originates from linguistic fieldwork and is bilingual in English and Tira.
+We finetune Whisper large-v3 using hand-labeled Tira audio and evaluate the resulting model on bilingual audio.
+We show that Whisper exhibits catastrophic forgetting of English after only a small amount of training, but that including automatically annotated English spans of audio in the training data dramatically reduces catastrophic forgetting of English while largely preserving ASR performance on monolingual Tira audio.
+This work is relevant to the study of automatic speech recognition for under-resourced languages and for contexts of bilingualism in a high and low-resourced language."
+37,long,Integrating diverse corpora for training an endangered language machine translation system,"Hunter Scheppat, Joshua Hartshorne, Dylan Leddy, Eric Le Ferrand and Emily Prudhommeaux","machine translation
+Formosan languages
+language documentation",oral,"Machine translation (MT) can be a useful technology for language documentation and for promoting language use in endangered language communities. Few endangered languages, however, have an existing parallel corpus large enough to train a reasonable MT model. In this paper, we re-purpose a wide range of diverse data sources containing Amis, English, and Mandarin text to serve as parallel corpora for training MT systems for Amis, one of the Indigenous languages of Taiwan. To supplement the small amount of Amis-English data, we produce synthetic Amis-English data by using a high quality MT system to generate English translations for the Mandarin side of the Amis-Mandarin corpus. Using two popular neural MT systems, OpenNMT and NLLB, we train models to translate between English and Amis, and Mandarin and Amis. We find that including synthetic data is helpful only when translating to English. In addition, we observe that neither MT architecture is consistently superior to other and that performance seems to vary according to the direction of translation and the amount of data used. These results indicate that MT is possible for an under-resourced language even without a formally prepared parallel corpus, but multiple training methods should be explored to produce optimal results."
+39,long,Comparing efficacy of IPA vs Pinyin romanisation transcriptions for complex tonal languages: A case study in Baima,"Katia Chirkova, Rolando Coto-Solano, Rachael Griffiths and Marieke Meelen","ASR
+Baima
+phonology
+Language Models
+tones",poster,
+40,short,Kuene: A Web Platform for Facilitating Hawaiian Word Neologism,"Sunny Walker, Winston Wu, Bruce Torres Fischer and Larry Kimura","language revitalization
+dictionary
+lexicon
+neologism
+software",oral,
+41,short,Evaluation of Morphological Segmentation Methods for Hupa,Nathaniel Parkes and Zoey Liu,"morphological segmentation
+model evaluation
+polysynthetic language",poster,
+43,long,Indigenous Languages Spoken in Argentina: Towards an academic and community approach,"Maria Belen Ticona Oquendo, Fernando Carranza and Viviana Cotik","indigenous language
+Argentina
+identity",poster,

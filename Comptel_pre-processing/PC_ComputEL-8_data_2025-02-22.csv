@@ -1,0 +1,94 @@
+#,person #,first name,last name,email,country,affiliation,Web page,role
+1,1,Milind,Agarwal,magarwa@gmu.edu,United States,George Mason University,,PC member
+2,2,Godfred,Agyapong,gagyapong@ufl.edu,United States,University of Florida,,chair
+3,3,Felix,Ameka,f.k.ameka@hum.leidenuniv.nl,Netherlands,Leiden University Centre for Linguistics,,PC member
+4,4,Antonios,Anastasopoulos,antonis@gmu.edu,United States,George Mason University,https://cs.gmu.edu/~antonis/,PC member
+5,5,Gregory,Anderson,gdsa@livingtongues.org,United States,Living Tongues Institute for Endangered Languages,,PC member
+6,6,Candy,Angulo,candyang@buffalo.edu,United States,SUNY at Buffalo,,PC member
+7,7,Helen,Aristar-Dry,hdry@linguistlist.org,United States,ICHL,,PC member
+8,8,Antti,Arppe,arppe@ualberta.ca,Canada,University of Alberta,,chair
+9,9,Dorothee,Beermann,dorothee.beermann@ntnu.no,Norway,Norwegian University of Science and Technology,https://www.ntnu.no/ansatte/dorothee.beermann,PC member
+10,10,Martin,Benjamin,martin@kamusi.org,Switzerland,Kamusi Project International,http://kamusi.org,PC member
+11,11,Andrea,Berez-Kroeker,andrea.berez@hawaii.edu,United States,University of Hawaiʻi at Mānoa Department of Linguistics,,PC member
+12,12,Claire,Bowern,claire.bowern@yale.edu,United States,Yale University,http://campuspress.yale.edu/clairebowern,PC member
+13,13,Aditi,Chaudhary,aditichaud@google.com,United States,Google Research,,chair
+14,14,Katia,Chirkova,katia.chirkova@gmail.com,France,"CRLAO, CNRS",,PC member
+15,15,Rolando,Coto-Solano,rolando.a.coto.solano@dartmouth.edu,United States,Dartmouth College,,PC member
+16,16,Christopher,Cox,christopher.cox@carleton.ca,Canada,Carleton University,,PC member
+17,17,Anna Luisa,Daigneault,annaluisa@livingtongues.org,United States,Living Tongues Institute for Endangered Languages,https://www.linkedin.com/in/annaluisadaigneault/,PC member
+18,18,Elizaveta,Dorofeeva,anrie.llnfld@gmail.com,Russia,Moscow State University,,PC member
+19,19,Suzanne,Duncan,suzanne@tehiku.co.nz,New Zealand,Te Hiku Media,,PC member
+20,20,Bill,Dyer,wgdyer@ufl.edu,United States,University of Florida,,PC member
+21,21,Mengzhe,Geng,Mengzhe.Geng@nrc-cnrc.gc.ca,Canada,National Research Council Canada,,PC member
+22,22,Luke,Gessler,lukegessler@gmail.com,United States,Indiana University,https://lgessler.com,PC member
+23,23,Jeff,Good,jcgood@buffalo.edu,United States,University at Buffalo,,PC member
+24,24,Michael Wayne,Goodman,goodmami@uw.edu,United States,University of Washington,,PC member
+25,25,Rachael,Griffiths,rachael.griffiths@ephe.psl.eu,United Kingdom,EPHE,,PC member
+26,26,Njabulo,Hadebe,hadeben3@ukzn.ac.za,South Africa,Computational linguist,,PC member
+27,27,Christopher,Hammerly,chris.hammerly@ubc.ca,Canada,University of British Columbia,,PC member
+28,28,William N.,Havard,william.havard@gmail.com,France,"LLL, Université d'Orléans & CNRS",https://william-n-havard.github.io/,PC member
+29,29,Ryan,Henke,rehenke@wisc.edu,United States,University of Hawaiʻi at Mānoa,,PC member
+30,30,Gary,Holton,holton@hawaii.edu,United States,Univeristy of Hawai'i,,PC member
+31,31,David,Huggins-Daines,dhdaines@gmail.com,Canada,Independent Researcher,,PC member
+32,32,Benjamin,Hunt,bhunt6@gmu.edu,United States,George Mason University,,PC member
+33,33,Xin He,Jiang,xinhejiang@uvic.ca,Canada,University of Victoria,,PC member
+34,34,Anagha Narasimha,Joshi,anaghaj489@gmail.com,United States,"University of Georgia, Athens, GA",,PC member
+35,35,Seth,Katenkamp,seth.katenkamp@yale.edu,United States,Yale University,,PC member
+36,36,Anna,Kazentseva,Anna.Kazantseva@nrc-cnrc.gc.ca,Canada,National Research Council of Canada,,PC member
+37,37,František,Kratochvíl,fanacek@gmail.com,Czechia,Palacký University,https://kas.upol.cz/nc/kontakty/vizitka/empid/80081594/,PC member
+38,38,Olga,Kriukova,olk312@usask.ca,Canada,University of Saskatchewan,,PC member
+39,39,Roland,Kuhn,rolandewkuhn@gmail.com,United States,unknown,,PC member
+40,40,Jordan,Lachler,lachler@ualberta.ca,Canada,University of Alberta,,chair
+41,41,Éric,Le Ferrand,leferran@bc.edu,United States,Boston College,,PC member
+42,42,Dylan,Leddy,leddyd@bc.edu,United States,Boston College,,PC member
+43,43,Gianna,Leoni,gianna@tehiku.co.nz,New Zealand,Te Reo Irirangi o Te Hiku o te Ika,,PC member
+44,44,Gina-Anne,Levow,levow@uw.edu,United States,University of Washington,,PC member
+45,45,Patrick,Littell,Patrick.Littell@nrc-cnrc.gc.ca,Canada,National Reseach Council Canada,,PC member
+46,46,Zoey,Liu,liu.ying@ufl.edu,United States,University of Florida,https://zoeyliu18.github.io/,PC member
+47,47,Olga,Lovick,olga.lovick@usask.ca,Canada,University of Saskatchewan,http://www.lithophile.com/olga,PC member
+48,48,Kavya,Manohar,kavya.manohar@duk.ac.in,India,Digital University Kerala,https://kavyamanohar.com,PC member
+49,49,Bradley,McDonnell,mcdonn@hawaii.edu,United States,University of Hawaii,,PC member
+50,50,Mel,Mistica,misticam@unimelb.edu.au,Australia,Melbourne University,,PC member
+51,51,Sarah,Moeller,smoeller@ufl.edu,United States,University of Florida,https://sarahrmoeller.github.io/,chair
+52,52,Timothy,Montler,timothy.montler@unt.edu,United States,UNT,,PC member
+53,53,Emmanuel,Ngue Um,ngueum@gmail.com,Cameroon,University of Yaoundé 1,,PC member
+54,54,Ake,Nicholas,ake.nicholas@auckland.ac.nz,New Zealand,University of Auckland,,PC member
+55,55,William,O'Grady,ogrady@hawaii.edu,United States,University of Hawaii at Manoa,,PC member
+56,56,Maura,O'Leary,mauraoleary339@gmail.com,United States,Western Washington University,http://mauraoleary.org,PC member
+57,57,Shu,Okabe,shu.okabe@tum.de,Germany,TUM,,PC member
+58,58,Aidan,Pine,hello@aidanpine.ca,Canada,National Research Council Canada,https://aidanpine.ca,PC member
+59,59,Emily,Prudhommeaux,prudhome@bc.edu,United States,Boston College,,PC member
+60,60,Robert,Pugh,robert.pugh408@gmail.com,United States,Indiana University,,PC member
+61,61,Manny,Rayner,mannyrayner@yahoo.com,Australia,University of South Australia,,PC member
+62,62,Aleksandr,Riaposov,aleksandr.riaposov@uni-hamburg.de,Germany,Universität Hamburg,,PC member
+63,63,Enora,Rice,enora.rice@colorado.edu,United States,University of Colorado,,PC member
+64,64,Shruti,Rijhwani,shrutirijhwani@gmail.com,India,"Birla Institute of Technology and Science, Pilani",,chair
+65,65,Daisy,Rosenblum,daisy.rosenblum@ubc.ca,Canada,University of British Columbia,,chair
+66,66,Elizabeth,Salesky,elizabeth.salesky@gmail.com,United States,Johns Hopkins University,,PC member
+67,67,Nay,San,nay.san@stanford.edu,United States,Stanford University,https://resunay.com,PC member
+68,68,Emmanuel,Schang,emmanuel.schang@univ-orleans.fr,France,"LLL, Univ. Orléans & CNRS",,PC member
+69,69,Yves,Scherrer,yves.scherrer@helsinki.fi,Norway,University of Oslo,,PC member
+70,70,Katherine,Schmirler,katie.schmirler@uleth.ca,Canada,University of Lethbridge,,PC member
+71,71,Miikka,Silfverberg,miikka.silfverberg@ubc.ca,Canada,UBC,,PC member
+72,72,Mark,Simmons,mjsimmons@ucsd.edu,United States,University of California San Diego,,PC member
+73,73,Gary,Simons,gary_simons@sil.org,United States,SIL International,https://scholars.sil.org/gary_f_simons,PC member
+74,74,Sonal,Sinha,sonalsinha2612@gmail.com,India,"Department of Linguistics, k.m. institute of hindi and linguistics, B.R.Ambedkar University",,PC member
+75,75,Conor,Snoek,conor.snoek@uleth.ca,Canada,University of Lethbridge,https://conorsnoek.wordpress.com/,PC member
+76,76,Ngoc,Tan Le,letan.dhcn@gmail.com,Viet Nam,"Industrial University of Ho Chi Minh, Université du Québec à Montréal",http://lengoctan.wordpress.com/,PC member
+77,77,Nick,Thieberger,thien@unimelb.edu.au,Australia,The University of Melbourne,,PC member
+78,78,Maria Belen,Ticona Oquendo,ticona.belu@gmail.com,Argentina,University of Buenos Aires,https://pacasi.github.io/,PC member
+79,79,Jörg,Tiedemann,jorg.tiedemann@helsinki.fi,Finland,University of Helsinki,,PC member
+80,80,Paul,Trilsbeek,Paul.Trilsbeek@mpi.nl,Netherlands,Max Planck Institute for Psycholinguistics,,PC member
+81,81,Trond,Trosterud,Trond.Trosterud@uit.no,Norway,UiT,https://uit.no/om/enhet/ansatte/person?p_document_id=41545&p_dimension_id=210121,PC member
+82,82,Francis M.,Tyers,ftyers@iu.edu,United States,Indiana University Bloomington,http://xixona.dlsi.ua.es/~fran/,PC member
+83,83,Daan,van Esch,dvanesch@google.com,United States,Google,,PC member
+84,84,Sahiinii Lemaina,Veikho,sahiinii@iitd.ac.in,India,"University Of Bern, Switzerland",http://himalayanlanguages.org/team,PC member
+85,85,Nitin,Venkateswaran,venkateswaran.n@ufl.edu,United States,University of Florida,,PC member
+86,86,Sunny,Walker,swalker@hawaii.edu,United States,University of Hawaii at Hilo,,PC member
+87,87,Olivia,Waring,owaring@hawaii.edu,United States,"University of Hawai'i Mānoa, Department of Linguistics",,chair
+88,88,Jonathan,Washington,jwashin1@swarthmore.edu,United States,Swarthmore College,,PC member
+89,89,Linda,Wiechetek,linda.wiechetek@uit.no,Norway,UiT,,PC member
+90,90,Cheyenne,Wing,cheyennewing@arizona.edu,United States,University of Arizona,,PC member
+91,91,Winston,Wu,wswu@hawaii.edu,United States,University of Hawaii at Hilo,,PC member
+92,92,Fei,Xia,fxia@uw.edu,United States,University of Washington,,PC member
+93,93,Changbing,Yang,cyang33@student.ubc.ca,Canada,University of British Columbia,,PC member

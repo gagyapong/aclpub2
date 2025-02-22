@@ -1,0 +1,115 @@
+id,first_name,last_name,email,instituition
+3,Masako,Watabe,masako.watabe@univ-fcomte.fr,University of Franche-Comté
+3,Max,Silberztein,max.silberztein@univ-fcomte.fr,University of Franche-Comté
+4,Njabulo,Hadebe,hadeben3@ukzn.ac.za,Computational lingust
+4,Khumbulani,Mngadi,Mngadik2@ukzn.ac.za,Director
+5,Shu,Okabe,shu.okabe@tum.de,TUM
+5,Alexander,Fraser,alexander.fraser@tum.de,TUM
+6,Anna Luisa,Daigneault,annaluisa@livingtongues.org,Living Tongues Institute for Endangered Languages
+6,Gregory,Anderson,gdsa@livingtongues.org,Living Tongues Institute for Endangered Languages
+7,Mengzhe,Geng,Mengzhe.Geng@nrc-cnrc.gc.ca,National Research Council Canada
+7,Patrick,Littell,Patrick.Littell@nrc-cnrc.gc.ca,National Research Council Canada
+7,Aidan,Pine,aidan.pine@nrc-cnrc.gc.ca,National Research Council Canada
+7,,Penác,dunderwood@wsanecschoolboard.ca,WÃ±S√ÅNEƒÜ School Board
+7,Marc,Tessier,marc.tessier@nrc-cnrc.gc.ca,National Research Council Canada
+7,Roland,Kuhn,Roland.Kuhn@nrc-cnrc.gc.ca,National Research Council Canada
+9,William N.,Havard,william.havard@gmail.com,"LLL, Université d'Orléans &amp; CNRS"
+9,Renauld,Govain,renauld.govain@ueh.edu.ht,"LangSé, Université d'État d'Haïti"
+9,Benjamin,Lecouteux,benjamin.lecouteux@univ-grenoble-alpes.fr,Laboratoire Informatique de Grenoble
+9,Emmanuel,Schang,emmanuel.schang@univ-orleans.fr,"LLL, Univ. Orléans & CNRS"
+10,Viann Sum Yat,Chan,chan.sum@northeastern.edu,University of British Columbia
+10,Christopher,Hammerly,chris.hammerly@ubc.ca,University of British Columbia
+11,Aidan,Pine,hello@aidanpine.ca,National Research Council Canada
+11,David,Huggins-Daines,dhdaines@gmail.com,Independent Researcher
+11,Carmen,Leeming,eagleloftk@gmail.com,Independent Researcher
+11,Patrick,Littell,Patrick.Littell@nrc-cnrc.gc.ca,National Research Council Canada
+11,Timothy,Montler,timothy.montler@unt.edu,University of North Texas
+11,Heather,Souter,h.souter@uwinnipeg.ca,University of Winnipeg
+11,Mark,Turin,mark.turin@ubc.ca,University of British Columbia
+12,Lorena,Martin Rodriguez,lorenarocio1@gmail.com,Carleton University
+12,Christopher,Cox,christopher.cox@carleton.ca,Carleton University
+16,Aleksandr,Riaposov,aleksandr.riaposov@uni-hamburg.de,University of Hamburg
+16,Alexandre,Arkhipov,alexandre.arkhipov@uni-hamburg.de,University of Hamburg
+16,Elena,Lazarenko,elena.lazarenko@uni-hamburg.de,University of Hamburg
+17,Flammie A,Pirinen,tommi.pirinen@uit.no,UiT Arctic University of Norway
+17,Linda,Wiechetek,linda.wiechetek@uit.no,UiT
+18,Emmanuel,Ngue Um,ngueum@gmail.com,University of Yaounde 1 & Institute of African Digital Humanities
+18,Francis,Tyers,francis@mozillafoundation.org,Indiana University
+18,Eliette-Caroline Emilie,Ngo Tjomb,eliette1404@gmail.com,University of Yaounde 1 & Institute of African Digital Humanities
+18,Florus Landry,Dibengue,landrydibengue@gmail.com,University of Yaounde 1 & Institute of African Digital Humanities
+18,Blaise-Mathieu,Banoum Manguele,banoummanguelleblaisemathieu@gmail.com,University of Yaounde 1 & Institute of African Digital Humanities
+18,Blaise Abbo,Djoulde,tblaiso@gmail.com,Institute of African Digital Humanities
+18,Mathilde,Nyambe A,mathildenyambe@gmail.com,Institute of African Digital Humanities
+18,Brice Martial,Atangana Eloundou,martialatangana@gmail.com,Institute of African Digital Humanities
+18,Jeff Sterling,Ngami Kamagoua,jeffsterlingngami@gmail.com,University of Yaounde 1 & Institute of African Digital Humanities
+18,Jos√©,Mpouda Avom,joseavom@gmail.com,Institute of African Digital Humanities
+18,Zacharie,Nyobe,znyobe@gmail.com,Institute of African Digital Humanities
+18,Emmanuel Giovanni,Eloundou Eyenga,inhunumaf@gmail.com,Institute of African Digital Humanities
+18,Andr√©,Likwai,likwaiandre66@gmail.com,University of Douala & Institute of African Digital Humanities
+20,Chatgpt,C-Lara-Instance,chatgptclarainstance@proton.me,University of South Australia
+20,Belinda,Chiera,Belinda.Chiera@unisa.au.edu,University of South Australia
+20,Anne-Laure,Dotte,anne-laure.dotte@unc.nc,University of New Caledonia
+20,St√©phanie,Geneix-Rabault,stephanie.rabault@unc.nc,University of New Caledonia
+20,Christ√®le,Maizonniaux,christele.maizonniaux@flinders.edu.au,Flinders University
+20,Sophie,Rendina,sophierendina@gmail.com,Independent scholar
+20,Manny,Rayner,Manny.Rayner@unisa.edu.au,University of South Australia
+20,Fabrice,Wacalie,fabrice.wacalie@unc.nc,University of New Caledonia
+20,Pauline,Welby,pauline.welby@cnrs.fr,CNRS
+21,Maura,O'Leary,mauraoleary339@gmail.com,Western Washington University
+21,Joseph,Lukner,josephlukner@icloud.com,Swarthmore College
+21,Finn,Verdonk,fverdonk1@swarthmore.edu,Swarthmore College
+21,Willem,de Reuse,willem@languageconservancy.org,The Language Conservancy
+21,Jonathan,Washington,jwashin1@swarthmore.edu,Swarthmore College
+22,Alessio,Tosolini,alessio.tosolini@yale.edu,Yale University
+22,Claire,Bowern,claire.bowern@yale.edu,Yale University
+23,Christopher,Cox,christopher.cox@carleton.ca,Tsuut'ina Nation / Carleton University
+23,Bruce,Starlight,spottedeagle1947@yahoo.com,Tsuut'ina Nation
+23,Janelle,Crane-Starlight,janelle.crane@tsuutina.com,Tsuut'ina Nation
+23,Hanna,Big Crow,hanna.bigcrow@tsuutina.com,Tsuut'ina Nation
+23,Antti,Arppe,arppe@ualberta.ca,University of Alberta
+24,Milind,Agarwal,magarwa@gmu.edu,George Mason University
+24,Antonios,Anastasopoulos,antonis@gmu.edu,George Mason University
+27,Blaine,Billings,blaine.t.billings@gmail.com,University of Hawai'i at MƒÅnoa
+27,Bradley,McDonnell,mcdonn@hawaii.edu,University of Hawai'i at MƒÅnoa
+28,Milind,Agarwal,magarwa@gmu.edu,George Mason University
+28,Antonios,Anastasopoulos,antonis@gmu.edu,George Mason University
+28,Daisy,Rosenblum,daisy.rosenblum@ubc.ca,University of British Columbia
+29,Changbing,Yang,cyang33@student.ubc.ca,University of British Columbia
+29,Patricia,Anderson,pmandersity@gmail.com,Revitalization Technology
+29,Godfred,Agyapong,gagyapong@ufl.edu,University of Florida
+29,Sarah,Moeller,smoeller@ufl.edu,University of Florida
+30,Olga,Kriukova,olk312@usask.ca,University of Saskatchewan
+30,Katherine,Schmirler,katie.schmirler@uleth.ca,University of Lethbridge
+30,Sarah,Moeller,smoeller@ufl.edu,University of Florida
+30,Olga,Lovick,oll920@usask.ca,University of Saskatchewan
+30,Inge,Genee,inge.genee@uleth.ca,University of Lethbridge
+30,Antti,Arppe,arppe@ualberta.ca,University of Alberta
+30,Alexandra,Smith,alexandra.smith2@uleth.ca,University of Lethbridge
+31,Candy,Angulo,candyang@buffalo.edu,SUNY at Buffalo
+31,Pilar,Valenzuela,valenzuela@chapman.edu,Chapman University
+31,Roberto,Zariquiey,rzariquiey@pucp.edu.pe,PUCP
+33,Robert,Pugh,robert.pugh408@gmail.com,"Indiana University, Kaltepetlahtol"
+33,Cheyenne,Wing,cheyennewing@arizona.edu,University of Arizona
+33,María  Ximena,Juarez Huerta,marijuarez012000@gmail.com,Kaltepetlahtol
+33,Ángeles,M√°rquez Hern√°ndez,cualtzintlahtol@gmail.com,Kaltepetlahtol
+33,Francis M.,Tyers,ftyers@prompsit.com,"Indiana University, Kaltepetlahtol"
+34,Benjamin,Hunt,bhunt6@gmu.edu,George Mason University
+35,Mark,Simmons,mjsimmons@ucsd.edu,University of California San Diego
+37,Hunter,Scheppat,scheppat@bc.edu,Boston College
+37,Joshua,Hartshorne,jhartshorne@mghihp.edu,MGH Institute of Health Professions
+37,Dylan,Leddy,leddyd@bc.edu,Boston College
+37,Eric,Le Ferrand,leferran@bc.edu,Boston College (USA)
+37,Emily,Prudhommeaux,prudhome@bc.edu,Boston College
+39,Katia,Chirkova,katia.chirkova@gmail.com,CNRS
+39,Rolando,Coto-Solano,rolando.a.coto.solano@dartmouth.edu,Dartmouth College
+39,Rachael,Griffiths,rachael.griffiths@ephe.psl.eu,EPHE-PSL
+39,Marieke,Meelen,mm986@cam.ac.uk,University of Cambridge
+40,Sunny,Walker,swalker@hawaii.edu,University of Hawai_i at Hilo
+40,Winston,Wu,wswu@hawaii.edu,University of Hawai_i at Hilo
+40,Bruce,Torres Fischer,bruce42@hawaii.edu,University of Hawai_i at Hilo
+40,Larry,Kimura,larrykim@hawaii.edu,University of Hawai_i at Hilo
+41,Nathaniel,Parkes,n.parkes@ufl.edu,University of Florida
+41,Zoey,Liu,liu.ying@ufl.edu,University of Florida
+43,Maria Belen,Ticona Oquendo,ticona.belu@gmail.com,University of Buenos Aires
+43,Fernando,Carranza,fernandocarranza86@gmail.com,University of Buenos Aires
+43,Viviana,Cotik,vcotik@gmail.com,University of Buenos Aires

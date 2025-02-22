@@ -1,0 +1,1000 @@
+- abstract: This paper presents a set of linguistic resources that formalizes the morphological 
+    behavior of simple Rromani adjectives. We describe the formalization of the adjectives’ morphology 
+    and the implementation with the NooJ linguistic platform of an electronic dictionary associated 
+    with a formal morpho-syntactic grammar. We can then apply this set of resources to a corpus to evaluate 
+    the resources and automatically annotate adjectival forms in Rromani texts. The final set of resources 
+    can then be used to identify each Rromani dialectal variant and can be used as a pedagogical tool to teach
+    Rromani as a second language.
+  attributes:
+    paper_type: long
+    presentation_type: poster
+  authors:
+  - email: masako.watabe@univ-fcomte.fr
+    first_name: Masako
+    instituition: "University of Franche-Comt\x8E"
+    last_name: Watabe
+  - email: max.silberztein@univ-fcomte.fr
+    first_name: Max
+    instituition: "University of Franche-Comt\x8E"
+    last_name: Silberztein
+  file: 3.pdf
+  id: 3
+  title: Formalizing the Morphology of Rromani Adjectives
+- abstract: ''
+  attributes:
+    paper_type: abstract
+    presentation_type: poster
+  authors:
+  - email: hadeben3@ukzn.ac.za
+    first_name: Njabulo
+    instituition: Computational lingust
+    last_name: Hadebe
+  - email: Mngadik2@ukzn.ac.za
+    first_name: Khumbulani
+    instituition: Director
+    last_name: Mngadi
+  file: 4.pdf
+  id: 4
+  title: 'From Data Collection to Usable Corpus: The Development of the isiZulu National
+    Corpus'
+- abstract: Parallel sentence mining is crucial for down-
+    stream tasks such as Machine Translation, especially for low-resource languages, where such
+    resources are scarce. In this context, we apply a pipeline approach with contextual embeddings
+    on two endangered Slavic languages spoken in Germany, Upper and Lower Sorbian, to evaluate mining 
+    quality. To this end, we compare off-the-shelf multilingual language models and
+    word encoders pre-trained on Upper Sorbian to understand their impact on sentence mining.
+    Moreover, to filter out irrelevant pairs, we experiment with a post-processing of mined sentences
+    through an unsupervised word aligner based on word embeddings. We observe the
+    usefulness of additional pre-training in Upper Sorbian, which leads to direct improvements
+    when mining the same language but also its related language, Lower Sorbian.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: shu.okabe@tum.de
+    first_name: Shu
+    instituition: Technische Universität München
+    last_name: Okabe
+  - email: alexander.fraser@tum.de
+    first_name: Alexander
+    instituition: Technische Universität München
+    last_name: Fraser
+  file: 5.pdf
+  id: 5
+  title: 'Bilingual Sentence Mining for Low-Resource Languages: a Case Study on Upper
+    and Lower Sorbian'
+- abstract: Many endangered, under-represented, minority and
+    Indigenous language communities around the
+    world need access to multilingual online resources
+    to survive in the digital age. The Living
+    Dictionaries platform provides a collaborative
+    online space for professional linguists and citizen-linguists alike to produce their own grassroots
+    digital dictionaries that include multimedia such as
+    audio recordings and images. These online lexica
+    can play an important role in assisting present and
+    future generations in combatting language loss and
+    creating visibility for their languages and cultures
+    on the Internet.
+  attributes:
+    paper_type: short
+    presentation_type: oral
+  authors:
+  - email: annaluisa@livingtongues.org
+    first_name: Anna Luisa
+    instituition: Living Tongues Institute for Endangered Languages
+    last_name: Daigneault
+  - email: gdsa@livingtongues.org
+    first_name: Gregory
+    instituition: Living Tongues Institute for Endangered Languages
+    last_name: Anderson
+  file: 6.pdf
+  id: 6
+  title: 'Citizen linguists and decolonial lexicography: Co-creative dictionary-building
+    in grassroots digital language documentation'
+- abstract: The SENCOTEN language, spoken on the Saanich peninsula of southern Vancouver Island, 
+    is in the midst of vigorous language revitalization efforts to turn the tide of language
+    loss as a result of colonial language policies. To support these on-the-ground efforts, the community is turning to digital technology. 
+    Automatic Speech Recognition (ASR) technology holds great promise for accelerating language
+    documentation and the creation of educational resources. However, developing ASR systems for SENCOTEN is challenging 
+    due to limited data and significant vocabulary variation from its polysynthetic structure and stress-driven metathesis. To address these challenges, we
+    propose an ASR-driven documentation pipeline that leverages augmented speech data from a
+    text-to-speech (TTS) system and cross-lingual transfer learning with Speech Foundation Models (SFMs).
+    An n-gram language model is also incorporated via shallow fusion or n-best restoring to maximize
+    the use of available data. Experiments on the SENCOTEN dataset show aword error rate (WER) of 19.34% and a 
+    character error rate (CER) of 5.09% on the test set with a 57.02% out-of-vocabulary (OOV)
+    rate. After filtering minor cedilla-related errors,WER improves to 14.32% (26.48% on unseen
+    words) and CER to 3.45%, demonstrating the potential of our ASR-driven pipeline to support SENCOTEN language documentation.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: Mengzhe.Geng@nrc-cnrc.gc.ca
+    first_name: Mengzhe
+    instituition: National Research Council Canada
+    last_name: Geng
+  - email: Patrick.Littell@nrc-cnrc.gc.ca
+    first_name: Patrick
+    instituition: National Research Council Canada
+    last_name: Littell
+  - email: aidan.pine@nrc-cnrc.gc.ca
+    first_name: Aidan
+    instituition: National Research Council Canada
+    last_name: Pine
+  - email: dunderwood@wsanecschoolboard.ca
+    first_name: .nan
+    instituition: W̱SÁNEĆ School Board
+    last_name: Penáć
+  - email: marc.tessier@nrc-cnrc.gc.ca
+    first_name: Marc
+    instituition: National Research Council Canada
+    last_name: Tessier
+  - email: Roland.Kuhn@nrc-cnrc.gc.ca
+    first_name: Roland
+    instituition: National Research Council Canada
+    last_name: Kuhn
+  file: 7.pdf
+  id: 7
+  title: Supporting SENĆOŦEN Language Documentation Efforts with Automatic Speech
+    Recognition
+- abstract: We use 40-year-old digitalised tape-recorded fieldwork data in Haitian Creole to train a native self-supervised learning (SSL) model of speech representation (WAV2VEC2). We also
+    use a continued pre-training approach on pre-trained SSL models of two foreign languages:
+    the lexifier language – French – and an unrelated language – English. We compare the
+    performances of these three SSL models, and of two other foreign SSL models directly finetuned, on an ASR task, where all five models are fine-tuned on transcribed fieldwork recordings in Haitian Creole. Our results show the best-performing model is the one trained using a continued pre-training approach on the lexifier language, followed by the native model.
+    We conclude that the ‘mobilising the archive’-approach advocated by (Bird, 2020) is a promising way forward to design speech technologies for new languages.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: william.havard@gmail.com
+    first_name: William N.
+    instituition: LLL, Univ. Orléans & CNRS
+    last_name: Havard
+  - email: renauld.govain@ueh.edu.ht
+    first_name: Renauld
+    instituition: LLL, Univ. Orléans & CNRS
+    last_name: Govain
+  - email: benjamin.lecouteux@univ-grenoble-alpes.fr
+    first_name: Benjamin
+    instituition: Laboratoire Informatique de Grenoble
+    last_name: Lecouteux
+  - email: emmanuel.schang@univ-orleans.fr
+    first_name: Emmanuel
+    instituition: LLL, Univ. Orléans & CNRS
+    last_name: Schang
+  file: 9.pdf
+  id: 9
+  title: 'Speech Technologies with Fieldwork Recordings: the Case of Haitian Creole'
+- abstract: This paper reports methods and results from a participatory design workshop aimed at evaluating the use of speech synthesis and text-to-speech for Ojibwe language education. Using
+    an existing text-to-speech feature as a starting point, we worked with two groups of Ojibwe
+    language instructors using a guided trial of the speech synthesis system and a two hour semistructured workshop with the aim of creating a lesson plan that utilizes text-to-speech. We
+    highlight the insights from this work, both in how to design and deliver speech synthesis systems for Indigenous language education, but also how to approach and design such a workshop to ensure a fruitful discourse.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: chan.sum@northeastern.edu
+    first_name: Viann Sum Yat
+    instituition: University of British Columbia
+    last_name: Chan
+  - email: chris.hammerly@ubc.ca
+    first_name: Christopher
+    instituition: University of British Columbia
+    last_name: Hammerly
+  file: 10.pdf
+  id: 10
+  title: 'Evaluating Indigenous language speech synthesis for education: A participatory
+    design workshop on Ojibwe text-to-speech'
+- abstract: Approximate search is a valuable component of online dictionaries for
+    learners, allowing them to find words even when they have not fully mastered the
+    orthography or cannot reliably perceive phonemic differences in the language.
+    However, evaluating the performance of different approximate search algorithms
+    remains difficult in the absence of real user queries. We detail several methods
+    for generating synthetic queries representing various user personas. We then compare
+    the performance of several search algorithms on both real and synthetic queries
+    in two Indigenous languages, SENĆOŦEN and Michif, that are phonologically and
+    morphologically very different from English.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: hello@aidanpine.ca
+    first_name: Aidan
+    instituition: National Research Council Canada
+    last_name: Pine
+  - email: dhdaines@gmail.com
+    first_name: David
+    instituition: Independent Researcher
+    last_name: Huggins-Daines
+  - email: eagleloftk@gmail.com
+    first_name: Carmen
+    instituition: Independent Researcher
+    last_name: Leeming
+  - email: Patrick.Littell@nrc-cnrc.gc.ca
+    first_name: Patrick
+    instituition: National Research Council Canada
+    last_name: Littell
+  - email: timothy.montler@unt.edu
+    first_name: Timothy
+    instituition: University of North Texas
+    last_name: Montler
+  - email: h.souter@uwinnipeg.ca
+    first_name: Heather
+    instituition: University of Winnipeg
+    last_name: Souter
+  - email: mark.turin@ubc.ca
+    first_name: Mark
+    instituition: University of British Columbia
+    last_name: Turin
+  file: 11.pdf
+  id: 11
+  title: Zero-Shot Query Generation for Approximate Search Algorithm Evaluation
+- abstract: ''
+  attributes:
+    paper_type: abstract
+    presentation_type: oral
+  authors:
+  - email: lorenarocio1@gmail.com
+    first_name: Lorena
+    instituition: Carleton University
+    last_name: Martin Rodriguez
+  - email: christopher.cox@carleton.ca
+    first_name: Christopher
+    instituition: Carleton University
+    last_name: Cox
+  file: 12.pdf
+  id: 12
+  title: User-friendly technology distribution and the language technology development
+    pipeline
+- abstract: This paper addresses the problem of data
+    interchange involving SIL FLEx, a software widely used for morphological
+    glossing of texts in underresourced languages. Interlinear glossed texts (IGT)
+    created in FLEx can be exported in a well defined XML format. However, IGT
+    created in other programs (e.g. Toolbox or
+    ELAN) or even in another version of the same FLEx project cannot be imported,
+    which blocks the reuse of legacy data as well as roundtrips involving FLEx. We
+    present a solution using Python and XSLT which was successfully used to merge a
+    large collection of legacy texts in Forest and Tundra Enets (formerly glossed in Toolbox)
+    with an existing FLEx project.
+  attributes:
+    paper_type: abstract
+    presentation_type: poster
+  authors:
+  - email: aleksandr.riaposov@uni-hamburg.de
+    first_name: Aleksandr
+    instituition: University of Hamburg
+    last_name: Riaposov
+  - email: alexandre.arkhipov@uni-hamburg.de
+    first_name: Alexandre
+    instituition: University of Hamburg
+    last_name: Arkhipov
+  - email: elena.lazarenko@uni-hamburg.de
+    first_name: Elena
+    instituition: University of Hamburg
+    last_name: Lazarenko
+  file: 16.pdf
+  id: 16
+  title: Importing complete interlinear glossed texts into SIL FLEx
+- abstract: Rule-based grammatical error correction has
+    long been seen as the most effective way to
+    create user-friendly end-user systems for gram-
+    matical error correction (GEC). However, in
+    the recent years the large language models and
+    generative AI systems based on that technol-
+    ogy have been progressed fast to challenge the
+    traditional GEC approach. In this article we
+    show which possibilities and limitations this
+    approach bears for Indigenous languages that
+    have more limited digital presence in the large
+    language model data and a different literacy
+    background than English. We show experi-
+    ments in North Sámi, an Indigenous language
+    of Northern Europe.
+  attributes:
+    paper_type: short
+    presentation_type: oral
+  authors:
+  - email: tommi.pirinen@uit.no
+    first_name: Flammie A
+    instituition: UiT Arctic University of Norway
+    last_name: Pirinen
+  - email: linda.wiechetek@uit.no
+    first_name: Linda
+    instituition: UiT
+    last_name: Wiechetek
+  file: 17.pdf
+  id: 17
+  title: Exploring Limitations and Risks of LLM-Based Grammatical Error Correction
+    for Indigenous Languages
+- abstract: The expansion of the speech technology sector has given rise to a novel
+    economic model in language research, with the objective of developing speech datasets.
+    This model is expanding to under-served African languages through collaborative
+    efforts between industries, organisations, and the active participation of communities.
+    This collaboration is yielding new datasets for machine learning, while also disclosing
+    vulnerabilities and sociolinguistic discrepancies between industrialised and non-industrialised
+    societies. A case study of a speech data collection camp that took place in September
+    2024 in Cameroon, involving representatives of 31 languages throughout the continent,
+    illustrates both the prospects of the new economic model for research on under-served
+    languages and the challenges of fair, effective, and responsible participation.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: ngueum@gmail.com
+    first_name: Emmanuel
+    instituition: University of Yaounde 1 & Institute of African Digital Humanities
+    last_name: Ngue Um
+  - email: francis@mozillafoundation.org
+    first_name: Francis
+    instituition: Indiana University
+    last_name: Tyers
+  - email: eliette1404@gmail.com
+    first_name: Eliette-Caroline Emilie
+    instituition: University of Yaounde 1 & Institute of African Digital Humanities
+    last_name: Ngo Tjomb
+  - email: landrydibengue@gmail.com
+    first_name: Florus Landry
+    instituition: University of Yaounde 1 & Institute of African Digital Humanities
+    last_name: Dibengue
+  - email: banoummanguelleblaisemathieu@gmail.com
+    first_name: Blaise-Mathieu
+    instituition: University of Yaounde 1 & Institute of African Digital Humanities
+    last_name: Banoum Manguele
+  - email: tblaiso@gmail.com
+    first_name: Blaise Abbo
+    instituition: Institute of African Digital Humanities
+    last_name: Djoulde
+  - email: mathildenyambe@gmail.com
+    first_name: Mathilde
+    instituition: Institute of African Digital Humanities
+    last_name: Nyambe A
+  - email: martialatangana@gmail.com
+    first_name: Brice Martial
+    instituition: Institute of African Digital Humanities
+    last_name: Atangana Eloundou
+  - email: jeffsterlingngami@gmail.com
+    first_name: Jeff Sterling
+    instituition: University of Yaounde 1 & Institute of African Digital Humanities
+    last_name: Ngami Kamagoua
+  - email: joseavom@gmail.com
+    first_name: JosÃ©
+    instituition: Institute of African Digital Humanities
+    last_name: Mpouda Avom
+  - email: znyobe@gmail.com
+    first_name: Zacharie
+    instituition: Institute of African Digital Humanities
+    last_name: Nyobe
+  - email: inhunumaf@gmail.com
+    first_name: Emmanuel Giovanni
+    instituition: Institute of African Digital Humanities
+    last_name: Eloundou Eyenga
+  - email: likwaiandre66@gmail.com
+    first_name: AndrÃ©
+    instituition: University of Douala & Institute of African Digital Humanities
+    last_name: Likwai
+  file: 18.pdf
+  id: 18
+  title: Speech Technologies Datasets for African Under-Served Languages
+- abstract: ''
+  attributes:
+    paper_type: abstract
+    presentation_type: oral
+  authors:
+  - email: chatgptclarainstance@proton.me
+    first_name: Chatgpt
+    instituition: University of South Australia
+    last_name: C-Lara-Instance
+  - email: Belinda.Chiera@unisa.au.edu
+    first_name: Belinda
+    instituition: University of South Australia
+    last_name: Chiera
+  - email: anne-laure.dotte@unc.nc
+    first_name: Anne-Laure
+    instituition: University of New Caledonia
+    last_name: Dotte
+  - email: stephanie.rabault@unc.nc
+    first_name: StÃ©phanie
+    instituition: University of New Caledonia
+    last_name: Geneix-Rabault
+  - email: christele.maizonniaux@flinders.edu.au
+    first_name: ChristÃ¨le
+    instituition: Flinders University
+    last_name: Maizonniaux
+  - email: sophierendina@gmail.com
+    first_name: Sophie
+    instituition: Independent scholar
+    last_name: Rendina
+  - email: Manny.Rayner@unisa.edu.au
+    first_name: Manny
+    instituition: University of South Australia
+    last_name: Rayner
+  - email: fabrice.wacalie@unc.nc
+    first_name: Fabrice
+    instituition: University of New Caledonia
+    last_name: Wacalie
+  - email: pauline.welby@cnrs.fr
+    first_name: Pauline
+    instituition: CNRS
+    last_name: Welby
+  file: 20.pdf
+  id: 20
+  title: Building culturally relevant multimedia resources for Indigenous languages
+    using AI tools and collaborative development
+- abstract: This paper presents work towards a morphologi-
+    cal transducer for Hän, a Dene language spoken
+    in Alaska and the Yukon Territory. We present
+    the implementation of several complex morpho-
+    logical features of Dene languages into a morpho-
+    logical transducer, an evaluation of the transducer
+    on corpus data, and a discussion of the future uses
+    of such a transducer towards Hän revitalization ef-
+    forts.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: mauraoleary339@gmail.com
+    first_name: Maura
+    instituition: Western Washington University
+    last_name: O'Leary
+  - email: josephlukner@icloud.com
+    first_name: Joseph
+    instituition: Swarthmore College
+    last_name: Lukner
+  - email: fverdonk1@swarthmore.edu
+    first_name: Finn
+    instituition: Swarthmore College
+    last_name: Verdonk
+  - email: willem@languageconservancy.org
+    first_name: Willem
+    instituition: The Language Conservancy
+    last_name: de Reuse
+  - email: jwashin1@swarthmore.edu
+    first_name: Jonathan
+    instituition: Swarthmore College
+    last_name: Washington
+  file: 21.pdf
+  id: 21
+  title: Towards a Hän morphological transducer
+- abstract: We compare the outcomes of multilingual and
+    crosslingual training for related and unrelated
+    Australian languages with similar phonologi-
+    cal inventories. We use the Montreal Forced
+    Aligner to train acoustic models from scratch
+    and adapt a large English model, evaluating
+    results against seen data, unseen data (seen lan-
+    guage), and unseen data and language. Results
+    indicate benefits of adapting the English base-
+    line model for previously unseen languages.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: alessio.tosolini@yale.edu
+    first_name: Alessio
+    instituition: Yale University
+    last_name: Tosolini
+  - email: claire.bowern@yale.edu
+    first_name: Claire
+    instituition: Yale University
+    last_name: Bowern
+  file: 22.pdf
+  id: 22
+  title: 'Multilingual MFA: Forced Alignment on Low-Resource Related Languages'
+- abstract: In this paper, we discuss the development of a long-term partnership between community and university-based language workers
+    to create supportive language technologies for Tsuutina, a critically endangered Dene language spoken in southern
+    Alberta, Canada. Initial development activities in this partnership sought to rapidly integrate existing language materials, with the aim of 
+    arriving at tools that would be effective and impactful for community use by virtue of their extensive lexical coverage. We describe how,
+    as this partnership developed, this approach was gradually superseded by one that involved a more targeted,
+    lexical-item-by-lexical-item review process that was directly informed by other community language priorities and connected to the work a local language authority. 
+    We describe how this shift in processes correlated with other changes in local language programs and priorities, 
+    noting how ongoing communication allowed this partnership to adapt to the evolving needs of local organizations.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: christopher.cox@carleton.ca
+    first_name: Christopher
+    instituition: Tsuut'ina Nation / Carleton University
+    last_name: Cox
+  - email: spottedeagle1947@yahoo.com
+    first_name: Bruce
+    instituition: Tsuut'ina Nation
+    last_name: Starlight
+  - email: janelle.crane@tsuutina.com
+    first_name: Janelle
+    instituition: Tsuut'ina Nation
+    last_name: Crane-Starlight
+  - email: hanna.bigcrow@tsuutina.com
+    first_name: Hanna
+    instituition: Tsuut'ina Nation
+    last_name: Big Crow
+  - email: arppe@ualberta.ca
+    first_name: Antti
+    instituition: University of Alberta
+    last_name: Arppe
+  file: 23.pdf
+  id: 23
+  title: Creating an intelligent dictionary of Tsuut’ina one verb at a time
+- abstract: It is by now common knowledge in the NLP
+    community that low-resource languages need
+    large-scale data creation efforts and novel con-
+    tributions in the form of robust algorithms that
+    work in data-scarce settings. Amongst these
+    languages, however, many have a large amount
+    of data, ripe for NLP applications, except that
+    this data exists in image-based formats. This
+    includes scanned copies of extremely valuable
+    dictionaries, linguistic field notes, children’s
+    stories, plays, and other textual material. To
+    extract the text data from these non machine-
+    readable images, Optical Character Recogni-
+    tion (OCR) is the most popular technique, but
+    it has proven to be challenging for low-resource
+    languages because of their unique properties
+    (uncommon diacritics, rare words etc.) and due
+    to a general lack of preserved page-structure in
+    the OCR output. So, to contribute to the reduc-
+    tion of these two big bottlenecks (lack of text
+    data and layout quality), we release the first
+    textual and structural OCR dataset for 8 indige-
+    nous languages of Latin America. We hope that
+    our dataset will encourage researchers within
+    the NLP and Computational Linguistics com-
+    munities to work with these languages.
+  attributes:
+    paper_type: short
+    presentation_type: poster
+  authors:
+  - email: magarwa@gmu.edu
+    first_name: Milind
+    instituition: George Mason University
+    last_name: Agarwal
+  - email: antonis@gmu.edu
+    first_name: Antonios
+    instituition: George Mason University
+    last_name: Anastasopoulos
+  file: 24.pdf
+  id: 24
+  title: 'AILLA-OCR: A First Textual and Structural Post-OCR Dataset for 8 Indigenous
+    Languages of Latin America'
+- abstract: One of the greatest issues facing documentary
+    linguists is the transcription bottleneck. While
+    the large quantity of audio and video data gener-
+    ated as part of a documentary project serves as
+    a long-lasting record of the language, without
+    corresponding text transcriptions, it remains
+    largely inaccessible for revitalization efforts
+    and linguistic analysis. Automated Speech
+    Recognition (ASR) is frequently proposed as
+    the solution to this problem. However, two is-
+    sues often prevent documentary linguists from
+    making use of ASR models: 1) the thought that
+    the typical documentary project does not have
+    sufficient data to develop an adequate ASR
+    model and 2) that correcting the output of an
+    ASR model would be more time-consuming for
+    transcribers than simply creating a transcription
+    from scratch. In this paper, we tackle both of
+    these issues by developing an ASR model in
+    the larger context of a documentation project
+    for Nasal, a low-resource language of western
+    Indonesia. Fine-tuning a larger pre-trained lan-
+    guage model on 25 hours of transcribed Nasal
+    speech, we produce a model that has a 44%
+    word error rate. Despite this relatively high
+    error rate, tests comparing speed of transcrib-
+    ing from scratch and correcting ASR-generated
+    transcripts show that the ASR model can sig-
+    nificantly speed up the transcription process.
+  attributes:
+    paper_type: short
+    presentation_type: oral
+  authors:
+  - email: blaine.t.billings@gmail.com
+    first_name: Blaine
+    instituition: University of Hawai'i at Mānoa
+    last_name: Billings
+  - email: mcdonn@hawaii.edu
+    first_name: Bradley
+    instituition: University of Hawai'i at Mānoa
+    last_name: McDonnell
+  file: 27.pdf
+  id: 27
+  title: Connecting Automated Speech Recognition to Transcription Practices
+- abstract: Kwak’wala is an Indigenous language spoken
+    in British Columbia, with a rich legacy of pub-
+    lished documentation spanning more than a
+    century, and an active community of speakers,
+    teachers, and learners engaged in language revi-
+    talization. Over 11 volumes of the earliest texts
+    created during the collaboration between Franz
+    Boas and George Hunt have been scanned but
+    remain unreadable by machines. Complete dig-
+    itization through optical character recognition
+    has the potential to facilitate transliteration into
+    modern orthographies and the creation of other
+    language technologies. In this paper, we ap-
+    ply the latest OCR techniques to a series of
+    Kwak’wala texts only accessible as images, and
+    discuss the challenges and unique adaptations
+    necessary to make such technologies work for
+    these real-world texts. Building on previous
+    methods, we propose using a mix of off-the-
+    shelf OCR methods, language identification,
+    and masking to effectively isolate Kwak’wala
+    text, along with post-correction models, to pro-
+    duce a final high-quality transcription.
+  attributes:
+    paper_type: short
+    presentation_type: oral
+  authors:
+  - email: magarwa@gmu.edu
+    first_name: Milind
+    instituition: George Mason University
+    last_name: Agarwal
+  - email: antonis@gmu.edu
+    first_name: Antonios
+    instituition: George Mason University
+    last_name: Anastasopoulos
+  - email: daisy.rosenblum@ubc.ca
+    first_name: Daisy
+    instituition: University of British Columbia
+    last_name: Rosenblum
+  file: 28.pdf
+  id: 28
+  title: Developing a Mixed-Methods Pipeline for Community-Oriented Digitization of
+    Kwak'wala Legacy Texts
+- abstract: ''
+  attributes:
+    paper_type: abstract
+    presentation_type: poster
+  authors:
+  - email: cyang33@student.ubc.ca
+    first_name: Changbing
+    instituition: University of British Columbia
+    last_name: Yang
+  - email: pmandersity@gmail.com
+    first_name: Patricia
+    instituition: Revitalization Technology
+    last_name: Anderson
+  - email: gagyapong@ufl.edu
+    first_name: Godfred
+    instituition: University of Florida
+    last_name: Agyapong
+  - email: smoeller@ufl.edu
+    first_name: Sarah
+    instituition: University of Florida
+    last_name: Moeller
+  file: 29.pdf
+  id: 29
+  title: Adaptability of NLP Annotation Tools for Linguistics
+- abstract: This paper describes the process and learn-
+    ing outcomes of a three-day workshop on ma-
+    chine learning basics for documentary linguists.
+    During this workshop, two groups of linguists
+    working with two Indigenous languages of
+    North America, Blackfoot and Dënë Su ˛łıné,
+    became acquainted with machine learning prin-
+    ciples, explored how machine learning can be
+    used in data processing for under-resourced
+    languages and then applied different machine
+    learning methods for automatic morphologi-
+    cal interlinearization and parts-of-speech tag-
+    ging. As a result, participants discovered paths
+    to greater collaboration between computer sci-
+    ence and documentary linguistics and reflected
+    on how linguists might be enabled to apply ma-
+    chine learning with less dependence on experts.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: olk312@usask.ca
+    first_name: Olga
+    instituition: University of Saskatchewan
+    last_name: Kriukova
+  - email: katie.schmirler@uleth.ca
+    first_name: Katherine
+    instituition: University of Lethbridge
+    last_name: Schmirler
+  - email: smoeller@ufl.edu
+    first_name: Sarah
+    instituition: University of Florida
+    last_name: Moeller
+  - email: oll920@usask.ca
+    first_name: Olga
+    instituition: University of Saskatchewan
+    last_name: Lovick
+  - email: inge.genee@uleth.ca
+    first_name: Inge
+    instituition: University of Lethbridge
+    last_name: Genee
+  - email: arppe@ualberta.ca
+    first_name: Antti
+    instituition: University of Alberta
+    last_name: Arppe
+  - email: alexandra.smith2@uleth.ca
+    first_name: Alexandra
+    instituition: University of Lethbridge
+    last_name: Smith
+  file: 30.pdf
+  id: 30
+  title: 'AI for Interlinearization and POS-tagging: Teaching Linguists to Fish'
+- abstract: This paper presents the creation of a Universal
+    Dependency (UD) treebank for Amahuaca (Peru),
+    marking the first UD treebank within the Headwaters
+    subbranch of the Panoan family, spoken mostly in Peru
+    and Brazil. While the UD guidelines provided a general
+    framework for our annotations, language-specific
+    decisions were necessary due to the rich morphology
+    of the Amahuaca language. The paper also describes
+    specific constructions to initiate a discussion on several
+    general UD annotation guidelines, particularly those
+    concerning clitics and morpheme-level dependencies.
+  attributes:
+    paper_type: short
+    presentation_type: poster
+  authors:
+  - email: candyang@buffalo.edu
+    first_name: Candy
+    instituition: SUNY at Buffalo
+    last_name: Angulo
+  - email: valenzuela@chapman.edu
+    first_name: Pilar
+    instituition: Chapman University
+    last_name: Valenzuela
+  - email: rzariquiey@pucp.edu.pe
+    first_name: Roberto
+    instituition: PUCP
+    last_name: Zariquiey
+  file: 31.pdf
+  id: 31
+  title: Universal Dependencies for Amahuaca
+- abstract: ''
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: robert.pugh408@gmail.com
+    first_name: Robert
+    instituition: Indiana University, Kaltepetlahtol
+    last_name: Pugh
+  - email: cheyennewing@arizona.edu
+    first_name: Cheyenne
+    instituition: University of Arizona
+    last_name: Wing
+  - email: marijuarez012000@gmail.com
+    first_name: "Mar\x92a  Ximena"
+    instituition: Kaltepetlahtol
+    last_name: Juarez Huerta
+  - email: cualtzintlahtol@gmail.com
+    first_name: çngeles
+    instituition: Kaltepetlahtol
+    last_name: MÃ¡rquez HernÃ¡ndez
+  - email: ftyers@prompsit.com
+    first_name: Francis M.
+    instituition: Indiana University, Kaltepetlahtol
+    last_name: Tyers
+  file: 33.pdf
+  id: 33
+  title: 'Ihquin tlahtouah in Tetelancingocah: An annotated, multi-purpose audio and
+    text corpus of Western Sierra Puebla Nahuatl'
+- abstract: ''
+  attributes:
+    paper_type: abstract
+    presentation_type: poster
+  authors:
+  - email: bhunt6@gmu.edu
+    first_name: Benjamin
+    instituition: George Mason University
+    last_name: Hunt
+  file: 34.pdf
+  id: 34
+  title: Developing a toolkit for community-led language documentation and reclamation
+    in Akuzipik
+- abstract: 'This paper explores finetuning Whisper for transcribing audio from linguistic
+    elicitation of Tira, a Heiban language of Sudan. Audio originates from linguistic fieldwork and is bilingual in English and Tira.
+    We finetune Whisper large-v3 using hand-labeled Tira audio and evaluate the resulting
+    model on bilingual audio.
+    We show that Whisper exhibits catastrophic forgetting of English after only a
+    small amount of training, but that including automatically annotated English spans
+    of audio in the training data dramatically reduces catastrophic forgetting of
+    English while largely preserving ASR performance on monolingual Tira audio.
+    This work is relevant to the study of automatic speech recognition for under-resourced
+    languages and for contexts of bilingualism in a high and low-resourced language.'
+  attributes:
+    paper_type: short
+    presentation_type: oral
+  authors:
+  - email: mjsimmons@ucsd.edu
+    first_name: Mark
+    instituition: University of California San Diego
+    last_name: Simmons
+  file: 35.pdf
+  id: 35
+  title: Data augmentation for low-resource bilingual ASR from Tira linguistic elicitation
+    using Whisper
+- abstract: Machine translation (MT) can be a useful technology for language documentation
+    and for promoting language use in endangered language communities. Few endangered
+    languages, however, have an existing parallel corpus large enough to train a reasonable
+    MT model. In this paper, we re-purpose a wide range of diverse data sources containing
+    Amis, English, and Mandarin text to serve as parallel corpora for training MT
+    systems for Amis, one of the Indigenous languages of Taiwan. To supplement the
+    small amount of Amis-English data, we produce synthetic Amis-English data by using
+    a high quality MT system to generate English translations for the Mandarin side
+    of the Amis-Mandarin corpus. Using two popular neural MT systems, OpenNMT and
+    NLLB, we train models to translate between English and Amis, and Mandarin and
+    Amis. We find that including synthetic data is helpful only when translating to
+    English. In addition, we observe that neither MT architecture is consistently
+    superior to other and that performance seems to vary according to the direction
+    of translation and the amount of data used. These results indicate that MT is
+    possible for an under-resourced language even without a formally prepared parallel
+    corpus, but multiple training methods should be explored to produce optimal results.
+  attributes:
+    paper_type: long
+    presentation_type: oral
+  authors:
+  - email: scheppat@bc.edu
+    first_name: Hunter
+    instituition: Boston College
+    last_name: Scheppat
+  - email: jhartshorne@mghihp.edu
+    first_name: Joshua
+    instituition: MGH Institute of Health Professions
+    last_name: Hartshorne
+  - email: leddyd@bc.edu
+    first_name: Dylan
+    instituition: Boston College
+    last_name: Leddy
+  - email: leferran@bc.edu
+    first_name: Eric
+    instituition: Boston College (USA)
+    last_name: Le Ferrand
+  - email: prudhome@bc.edu
+    first_name: Emily
+    instituition: Boston College
+    last_name: Prudhommeaux
+  file: 37.pdf
+  id: 37
+  title: Integrating diverse corpora for training an endangered language machine translation
+    system
+- abstract: How is automated tone transcription affected
+    by the choice of transcription orthography? In
+    this paper we present a range of experiments
+    that indicate that, even when the tonal repre-
+    sentations are kept the same, the way vowels
+    and consonants are transcribed can affect tonal
+    character outputs. Our results also indicate that
+    using a Language Model (LM) for decoding
+    can mitigate problems with tonal outputs, but
+    tones remain the most difficult part of the tran-
+    scription. In doing this we also present the first
+    Automatic Speech Recognition (ASR) models
+    for the Baima language, spoken in Sichuan and
+    Gansu, China. We hope to use these models to
+    contribute to ongoing documentation efforts.
+  attributes:
+    paper_type: long
+    presentation_type: poster
+  authors:
+  - email: katia.chirkova@gmail.com
+    first_name: Katia
+    instituition: CNRS
+    last_name: Chirkova
+  - email: rolando.a.coto.solano@dartmouth.edu
+    first_name: Rolando
+    instituition: Dartmouth College
+    last_name: Coto-Solano
+  - email: rachael.griffiths@ephe.psl.eu
+    first_name: Rachael
+    instituition: EPHE-PSL
+    last_name: Griffiths
+  - email: mm986@cam.ac.uk
+    first_name: Marieke
+    instituition: University of Cambridge
+    last_name: Meelen
+  file: 39.pdf
+  id: 39
+  title: 'Comparing efficacy of IPA vs Pinyin romanisation transcriptions for complex
+    tonal languages: A case study in Baima'
+- abstract: This paper presents Kuene, a web-based collaborative dictionary editing platform designed to
+    facilitate the creation and publication of Hawaiian neologisms by the Hawaiian Lexicon Committee. Through Kuene, the Committee can
+    create, edit, and refine new dictionary entries
+    with a multi-round approval process, ensuring
+    accuracy and consistency. The platform’s tech-
+    nical features enable flexible access control,
+    fine-grained approval states, and support for
+    multimedia content and AI-assisted orthogra-
+    phy modernization. Just in the past two months,
+    Kuene has enabled the publication of over 400
+    new Hawaiian words. By streamlining the dic-
+    tionary editing process, Kuene aims to alleviate
+    the scarcity of modern Hawaiian words and fa-
+    cilitate the revitalization efforts of the Hawaiian
+  attributes:
+    paper_type: short
+    presentation_type: oral
+  authors:
+  - email: swalker@hawaii.edu
+    first_name: Sunny
+    instituition: University of Hawai_i at Hilo
+    last_name: Walker
+  - email: wswu@hawaii.edu
+    first_name: Winston
+    instituition: University of Hawai_i at Hilo
+    last_name: Wu
+  - email: bruce42@hawaii.edu
+    first_name: Bruce
+    instituition: University of Hawai_i at Hilo
+    last_name: Torres Fischer
+  - email: larrykim@hawaii.edu
+    first_name: Larry
+    instituition: University of Hawai_i at Hilo
+    last_name: Kimura
+  file: 40.pdf
+  id: 40
+  title: 'Kuene: A Web Platform for Facilitating Hawaiian Word Neologism'
+- abstract: Building downstream NLP applications with
+    tokenization systems built on morphological
+    segmentation has been shown to be fruitful for
+    certain morphologically-rich languages. Yet,
+    indigenous and endangered languages, which
+    tend to be highly polysynthetic, thereby a po-
+    tential beneficiary of this approach, pose ad-
+    ditional difficulties in their limited access to
+    annotated data for morphological segmenta-
+    tion tasks. In this study, we develop mor-
+    phological segmentation models for Hupa, a
+    Dene/Athabaskan language critically endan-
+    gered to North America. With a total of 595
+    word types, we seek to identify an optimal mor-
+    phological segmentation model and illustrate
+    how those tested perform under different levels
+    of training data limitation. We propose a simple
+    method that casts morphological segmentation
+    as a sequence binary classification task. While
+    this approach does not outperform the estab-
+    lished practice of multi-class classification, it
+    outperforms neural alternatives. This work is
+    conducted under the intention to act as a start-
+    ing point for future technological developments
+    with Hupa looking to leverage its morpholog-
+    ical qualities, which we hope can serve as a
+    reflection for work with other indigenous lan-
+    guages being studied under similar constraints.
+  attributes:
+    paper_type: short
+    presentation_type: poster
+  authors:
+  - email: n.parkes@ufl.edu
+    first_name: Nathaniel
+    instituition: University of Florida
+    last_name: Parkes
+  - email: liu.ying@ufl.edu
+    first_name: Zoey
+    instituition: University of Florida
+    last_name: Liu
+  file: 41.pdf
+  id: 41
+  title: Evaluation of Morphological Segmentation Methods for Hupa
+- abstract: ''
+  attributes:
+    paper_type: long
+    presentation_type: poster
+  authors:
+  - email: ticona.belu@gmail.com
+    first_name: Maria Belen
+    instituition: University of Buenos Aires
+    last_name: Ticona Oquendo
+  - email: fernandocarranza86@gmail.com
+    first_name: Fernando
+    instituition: University of Buenos Aires
+    last_name: Carranza
+  - email: vcotik@gmail.com
+    first_name: Viviana
+    instituition: University of Buenos Aires
+    last_name: Cotik
+  file: 43.pdf
+  id: 43
+  title: 'Indigenous Languages Spoken in Argentina: Towards an academic and community
+    approach'
