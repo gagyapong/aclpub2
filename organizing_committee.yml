@@ -1,0 +1,31 @@
+- title: "Organizing Committee"
+  entries:
+    - role: "General Chair"
+      members:
+        - first_name: Jordan
+          last_name: Lachler
+          institution: University of Alberta
+    
+    - role: "Deputy General Chair"
+      members:
+        - first_name: Godfred
+          last_name: Agyapong
+          institution: University of Florida
+
+    - role: "Program Chairs"
+      members:
+        - first_name: Antti
+          last_name: Arppe
+          institution: University of Alberta
+        - first_name: Aditi
+          last_name: Chaudhary
+          institution: Google Research
+        - first_name: Sarah
+          last_name: Moeller
+          institution: University of Florida
+        - first_name: Shruti
+          last_name: Rijhwani
+          institution: Birla Institute of Technology and Science, Pilani
+        - first_name: Daisy
+          last_name: Rosenblum
+          institution: University of British Columbia
