@@ -1,4 +1,5 @@
-- entries:
+- title: "Chairs"
+  entries:
   - first_name: Jordan
     institution: University of Alberta
     last_name: Lachler
@@ -20,8 +21,8 @@
   - first_name: Daisy
     institution: University of British Columbia
     last_name: Rosenblum
-  role: Chairs
-- entries:
+- title: "Program Committee"
+  entries:
   - first_name: Milind
     institution: George Mason University
     last_name: Agarwal
@@ -281,4 +282,3 @@
   - first_name: Changbing
     institution: University of British Columbia
     last_name: Yang
-  role: Program Committee
