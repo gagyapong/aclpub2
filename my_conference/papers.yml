@@ -11,11 +11,11 @@
   authors:
   - email: masako.watabe@univ-fcomte.fr
     first_name: Masako
-    instituition: "University of Franche-Comt\x8E"
+    instituition: 'University of Franche-Comté'
     last_name: Watabe
   - email: max.silberztein@univ-fcomte.fr
     first_name: Max
-    instituition: "University of Franche-Comt\x8E"
+    instituition: 'University of Franche-Comté'
     last_name: Silberztein
   file: 3.pdf
   id: 3
@@ -74,7 +74,7 @@
   id: 6
   title: 'Citizen linguists and decolonial lexicography: Co-creative dictionary-building
     in grassroots digital language documentation'
-- abstract: The SENCOTEN language, spoken on the Saanich peninsula of southern Vancouver Island, 
+- abstract: The SENĆOŦEN language, spoken on the Saanich peninsula of southern Vancouver Island, 
     is in the midst of vigorous language revitalization efforts to turn the tide of language
     loss as a result of colonial language policies. To support these on-the-ground efforts, the community is turning to digital technology. 
     Automatic Speech Recognition (ASR) technology holds great promise for accelerating language
@@ -104,9 +104,9 @@
     instituition: National Research Council Canada
     last_name: Pine
   - email: dunderwood@wsanecschoolboard.ca
-    first_name: Penáć
+    first_name: .nan
     instituition: W̱SÁNEĆ School Board
-    last_name: Penáć
+    last_name: PENÁĆ
   - email: marc.tessier@nrc-cnrc.gc.ca
     first_name: Marc
     instituition: National Research Council Canada
@@ -117,11 +117,10 @@
     last_name: Kuhn
   file: 7.pdf
   id: 7
-  title: Supporting SENĆOŦEN Language Documentation Efforts with Automatic Speech
-    Recognition
+  title: "Supporting SENĆOŦEN Language Documentation Efforts with Automatic Speech Recognition"
 - abstract: We use 40-year-old digitalised tape-recorded fieldwork data in Haitian Creole to train a native self-supervised learning (SSL) model of speech representation (WAV2VEC2). We also
-    use a continued pre-training approach on pre-trained SSL models of two foreign languages:the lexifier language – French – and an unrelated language – English. We compare the
-    performances of these three SSL models, and of two other foreign SSL models directly finetuned, on an ASR task, where all five models are fine-tuned on transcribed fieldwork recordings in Haitian Creole. Our results show the best-performing model is the one trained using a continued pre-training approach on the lexifier language, followed by the native model.
+    use a continued pre-training approach on pre-trained SSL models of two foreign languages:\
+    the lexifier language – French – and an unrelated language – English. We compare the performances of these three SSL models, and of two other foreign SSL models directly finetuned, on an ASR task, where all five models are fine-tuned on transcribed fieldwork recordings in Haitian Creole. Our results show the best-performing model is the one trained using a continued pre-training approach on the lexifier language, followed by the native model.
     We conclude that the ‘mobilising the archive’-approach advocated by (Bird, 2020) is a promising way forward to design speech technologies for new languages.
   attributes:
     paper_type: long
@@ -292,7 +291,7 @@
     instituition: University of Yaounde 1 & Institute of African Digital Humanities
     last_name: Ngami Kamagoua
   - email: joseavom@gmail.com
-    first_name: JosÃ©
+    first_name: José
     instituition: Institute of African Digital Humanities
     last_name: Mpouda Avom
   - email: znyobe@gmail.com
@@ -304,7 +303,7 @@
     instituition: Institute of African Digital Humanities
     last_name: Eloundou Eyenga
   - email: likwaiandre66@gmail.com
-    first_name: AndrÃ©
+    first_name: André
     instituition: University of Douala & Institute of African Digital Humanities
     last_name: Likwai
   file: 18.pdf
@@ -448,7 +447,7 @@
   id: 24
   title: 'AILLA-OCR: A First Textual and Structural Post-OCR Dataset for 8 Indigenous
     Languages of Latin America'
-- abstract: One of the greatest issues facing documentary
+- abstract: 'One of the greatest issues facing documentary
     linguists is the transcription bottleneck. While
     the large quantity of audio and video data gener-
     ated as part of a documentary project serves as
@@ -459,7 +458,7 @@
     Recognition (ASR) is frequently proposed as
     the solution to this problem. However, two is-
     sues often prevent documentary linguists from
-    making use of ASR models:1) the thought that
+    making use of ASR models: 1) the thought that
     the typical documentary project does not have
     sufficient data to develop an adequate ASR
     model and 2) that correcting the output of an
@@ -476,7 +475,7 @@
     error rate, tests comparing speed of transcrib-
     ing from scratch and correcting ASR-generated
     transcripts show that the ASR model can sig-
-    nificantly speed up the transcription process.
+    nificantly speed up the transcription process.'
   attributes:
     paper_type: short
     presentation_type: oral
