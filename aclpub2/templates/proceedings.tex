@@ -6,10 +6,19 @@
 \usepackage{eurosym}
 
 
-%\usepackage[T1]{fontenc}
-% For Vietnamese characters
-\usepackage[T5]{fontenc}
+% Use more comprehensive font encoding for special characters
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{newunicodechar}
+
+% Define special Unicode characters for proper rendering in TOC
+\newunicodechar{Ć}{\'{C}}
+\newunicodechar{Ŧ}{\mbox{\textipa{\texttoptiebar{T}}}}
+\newunicodechar{Ŧ}{T\hspace{-.25em}\raisebox{.6ex}{-}}
+\newunicodechar{W̱}{\underline{W}}
+\newunicodechar{Ń}{\'{N}}
+\newunicodechar{Ņ}{\c{N}}
 
 \usepackage{multicol}
 \usepackage{pdfpages}

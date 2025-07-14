@@ -15,8 +15,10 @@ def load_file(*args: str):
 
 
 def render_name(user):
-    name = user["first_name"] + " "
-    if "middle_name" in user:
+    name = ""
+    if "first_name" in user and user["first_name"] and user["first_name"].strip():
+        name = user["first_name"] + " "
+    if "middle_name" in user and user["middle_name"] and user["middle_name"].strip():
         name += user["middle_name"] + " "
     name += user["last_name"] + "\index{" + user["last_name"] + "}"
     return name
